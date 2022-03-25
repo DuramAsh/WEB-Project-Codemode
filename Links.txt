@@ -1,10 +1,10 @@
 Link:
-https://github.com/Nura-21/WEB-Project-CodeMode.git
+https://github.com/Nura-21/WEB-Project-Codemode.git
 
 Commands:
 git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/Nura-21/WEB-Project-CodeMode.git
+git remote add origin https://github.com/Nura-21/WEB-Project-Codemode.git
 git push -u origin main
