@@ -1,0 +1,33 @@
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    background-color: darkgray;
+    font-size: 16px;
+}
+
+.right{
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#logo{
+    margin-left: 5%;
+}
+
+.btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.login{
+    /* background-color: purple; */
+    /* color: white; */
+    border: none;
+}
