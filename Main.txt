@@ -12,6 +12,10 @@ git push -u origin main
 Create venv: 
 in this directory -> virtualenv Back
 
+Open server and possibility to connect from other devices:
+ng serve -o --disable-host-check --host 192.168.0.113 
+ng serve -o --disable-host-check --host 000.000.0.000
+
 
 Components:
 1) Home page
