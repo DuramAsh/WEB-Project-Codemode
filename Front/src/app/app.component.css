@@ -5,8 +5,10 @@ header{
     align-items: center;
     width: 100vw;
     height: 10vh;
-    background-color: darkgray;
+    background-color: #6400c2;
+    color: white;
     font-size: 16px;
+    user-select: none;
 }
 
 .right{
@@ -17,6 +19,10 @@ header{
     align-items: center;
 }
 
+p{
+    cursor: pointer;
+}
+
 #logo{
     margin-left: 5%;
 }
@@ -24,10 +30,21 @@ header{
 .btn{
     padding: 10px 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .login{
-    /* background-color: purple; */
-    /* color: white; */
+    background-color: white;
+    color: #6400c2;
     border: none;
+}
+
+
+body{
+    width: 100vw;
+    height: 90vh;
+    background-color: white;
+    color: #6400c2;
+    padding-left: 5%;
+    overflow-x: hidden;
 }

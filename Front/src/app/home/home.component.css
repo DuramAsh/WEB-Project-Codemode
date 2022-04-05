@@ -1,0 +1,38 @@
+
+body{
+    display: flex;
+    flex-direction: row nowrap;
+    /* align-items: center; */
+    justify-content: center;
+    height: 90vh;
+    width: 100vw;
+    
+}
+
+.btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    user-select: none;
+    background-color: #6400c2;
+    color: white;
+}
+
+.left{
+    width: 50%;
+    padding-top: 29vh;
+}
+
+.left p{
+    padding-bottom: 15px;
+}
+
+.right{
+    width: 50%;
+}
+
+.right img{
+    padding-top: 12vh;
+    width: 80%;
+}
