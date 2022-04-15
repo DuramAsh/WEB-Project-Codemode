@@ -1,0 +1,34 @@
+body{
+    display: flex;
+    flex-direction: row nowrap;
+    justify-content: center;
+    height: 90vh;
+    width: 100vw;
+}
+
+.material-icons{
+    user-select: none;
+    padding-right: 10px;
+}
+
+.left{
+    padding-top: 10%;
+    width: 50%;
+    .each{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 15px;    
+    }
+}
+
+.right{
+    width: 50%;
+    img{
+        padding-top: 20vh;
+    }
+}
+
+a{
+    color: #6400c2;
+}

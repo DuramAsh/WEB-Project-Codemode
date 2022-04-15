@@ -1,0 +1,52 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    background-color: #6400c2;
+    color: white;
+    font-size: 16px;
+    user-select: none;
+
+    p {
+        cursor: pointer;
+    }
+
+    #logo {
+        margin-left: 5%;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+
+        .login {
+            background-color: white;
+            color: #6400c2;
+            border: none;
+        }
+    }
+
+    .right {
+        display: flex;
+        flex-direction: row;
+        width: 50vw;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+}
+
+
+
+body{
+    width: 100vw;
+    height: 90vh;
+    background-color: white;
+    color: #6400c2;
+    padding-left: 5%;
+    overflow-x: hidden;
+}
