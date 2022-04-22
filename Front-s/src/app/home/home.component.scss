@@ -1,32 +1,113 @@
+@import "../variables.scss";
+
 body{
     display: flex;
     flex-direction: row nowrap;
     justify-content: center;
-    height: 90vh;
-    width: 100vw;
+    width: $window_w;
     .btn{
-        padding: 10px 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 4%;
+        padding: 1.5% 2.5%;
         border-radius: 10px;
         cursor: pointer;
         border: none;
         user-select: none;
-        background-color: #6400c2;
+        background-color: $main-color;
         color: white;
+        transition: all 250ms;
+        font-size: $home_p_big;
+        
+        &:hover{
+            transform: scale(1.05);
+            
+            & i{
+                transform: translateX(5px);
+                transition: transform 400ms ease-in-out;
+            }
+        }
+
+        & i{
+            margin-left: 10px;
+        }
+        
     }
     .left{
-        width: 50%;
-        padding-top: 12%;
+        width: $window_w / 2;
+        padding-top: 15%;
         p{
-            padding-bottom: 15px;
+            margin-bottom: 2%;
+
+            & i{
+                user-select: none;
+                margin-right: 1%;
+                font-size: $home_i_big;
+            }
         }
+
+        & .title{
+            font-size: $home_title_big; 
+            &.lil{
+                font-size: $home_title_lil_big;
+            }
+        }
+        
+        
+
+        
     }
     .right{
-        width: 50%;
+        width: $window_w / 2;
         img{
-            padding-top: 12vh;
-            width: 80%;
+            padding-top: $home_image_padding_big;
+            width: $home_image_width_big;
             user-select: none;
         }
     }
 }
 
+
+@media screen and (max-width: 400px) {
+    body{
+        .left{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            & .title{
+                font-size: $home_title_lil; 
+                &.lil{
+                    font-size: $home_title_lil_lil;
+                }
+            }
+
+            p{
+                margin-bottom: 10%;
+    
+                & i{
+                    user-select: none;
+                    margin-right: 1%;
+                    font-size: $home_i_lil;
+                }
+            }
+
+            .btn{
+                width: 90%;
+                padding: 5% 10%;
+                border-radius: 20px;
+                font-weight: bold;
+                margin-top: 15%;
+                font-size: $home_title_lil;
+                i{
+                    font-size: $home_title_big;
+                }
+            }
+        }
+
+
+        .right{
+            width: 0;
+        }
+    }
+}

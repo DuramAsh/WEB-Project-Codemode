@@ -11,7 +11,7 @@ import { TutorsComponent } from './tutors/tutors.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'authorize', component: LogRegComponent },
-  { path: 'authorize/coffer', component: OfferComponent },
+  { path: 'authorize/offer', component: OfferComponent },
   { path: 'courses', component: CoursesComponent },
   { path: 'tutors', component: TutorsComponent },
   { path: 'info', component: InfoComponent },
@@ -19,7 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

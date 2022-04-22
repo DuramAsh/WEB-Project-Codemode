@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-offer',
@@ -6,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./offer.component.scss']
 })
 export class OfferComponent implements OnInit {
-  location: any;
 
-  constructor() { }
+
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
   }
