@@ -26,7 +26,8 @@ class Course(models.Model):
     description = models.TextField(max_length=300)
     price = models.IntegerField(default=0)
     info = models.TextField(max_length=300)
-    tutors = models.ManyToManyField(Tutor, through="CourseTutor")
+    tutors = models.ManyToManyField(Tutor, related_name="courses", through="CourseTutor",
+                                    through_fields=["course", "tutor"])
 
     def __str__(self):
         return self.title
@@ -49,7 +50,8 @@ class Student(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=300)
     cash = models.FloatField(default=0)
-    courses = models.ManyToManyField(CourseTutor, through="StudentCourseTutor")
+    courses = models.ManyToManyField(CourseTutor, related_name="students", through="StudentCourseTutor",
+                                     through_fields=["student", "course_tutor"])
 
     def __str__(self):
         return self.name

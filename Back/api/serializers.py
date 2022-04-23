@@ -5,7 +5,8 @@ from .models import Tutor, TutorPhoneNumbers, Course, CourseTutor, Student, Stud
 
 
 class TutorSerializer(serializers.ModelSerializer):
-    phones = serializers.StringRelatedField(many=True)
+    phones = serializers.StringRelatedField(many=True, required=False)
+    courses = serializers.StringRelatedField(many=True, required=False)
 
     class Meta:
         model = Tutor
@@ -19,10 +20,12 @@ class TutorPhoneSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.Serializer):
+    id = serializers.PrimaryKeyRelatedField(read_only=True)
     title = serializers.CharField()
     description = serializers.CharField()
     price = serializers.IntegerField()
-    info = serializers.TextField()
+    info = serializers.CharField()
+    tutors = serializers.StringRelatedField(many=True, read_only=True)
 
     def create(self, validated_data):
         return Course.objects.create(**validated_data)
@@ -35,7 +38,12 @@ class CourseSerializer(serializers.Serializer):
         instance.save()
         return instance
 
-class CourseTutor(serializers.ModelSerializer):
+
+class CourseTutorSerializer(serializers.ModelSerializer):
+    course = serializers.SlugRelatedField(slug_field="title", read_only=True)
+    tutor = serializers.SlugRelatedField(slug_field="name", read_only=True)
+    students = serializers.StringRelatedField(many=True, read_only=True)
+
     class Meta:
         model = CourseTutor
         fields = '__all__'
