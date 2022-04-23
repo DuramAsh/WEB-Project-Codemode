@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
-from .serializers import TutorSerializer, TutorPhoneSerializer, StudentSerializer, StudentPhoneSerializer, \
-    CourseSerializer, CourseTutorSerializer
+from .serializers import *
 
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -49,11 +48,12 @@ def tutor_details(request, id):
 
 @api_view(['POST'])
 def post_teacher_phone(request):
-    serializer = TutorPhoneSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors)
+    if request.method == 'POST':
+        serializer = TutorPhoneSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors)
 
 
 class StudentView(APIView):
@@ -77,6 +77,27 @@ def post_student_phone(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors)
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def student_details(request, id):
+    try:
+        student = Student.objects.get(pk=id)
+    except Student.DoesNotExist as e:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+    if request.method == 'GET':
+        serializer = StudentSerializer(student)
+        return Response(serializer.data)
+    elif request.method == 'PUT':
+        serializer = StudentSerializer(student, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        student.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class CourseView(APIView):
@@ -104,7 +125,7 @@ def course_details(request, id):
         serializer = CourseSerializer(course)
         return Response(serializer.data)
     elif request.method == 'PUT':
-        serializer = TutorSerializer(course, data=request.data)
+        serializer = CourseSerializer(course, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -112,6 +133,22 @@ def course_details(request, id):
     elif request.method == 'DELETE':
         course.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['GET', 'POST'])
+def student_courses(request, id):
+    if request.method == 'GET':
+        courses = Student.objects.get(pk=id).courses.all()
+        serializer = CourseTutorSerializer(courses, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    elif request.method == 'POST':
+        data = request.data
+        data["student"] = id
+        serializer = StudentCourseTutorSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors)
 
 
 @api_view(['GET', 'POST'])

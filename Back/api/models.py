@@ -22,12 +22,12 @@ class TutorPhoneNumbers(models.Model):
 
 
 class Course(models.Model):
+    url = models.CharField(max_length=512, default="")
     title = models.CharField(max_length=300)
     description = models.TextField(max_length=300)
     price = models.IntegerField(default=0)
     info = models.TextField(max_length=300)
-    tutors = models.ManyToManyField(Tutor, related_name="courses", through="CourseTutor",
-                                    through_fields=["course", "tutor"])
+    tutors = models.ManyToManyField(Tutor, related_name="courses", through="CourseTutor")
 
     def __str__(self):
         return self.title
@@ -43,15 +43,14 @@ class CourseTutor(models.Model):
     amount = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.course, self.tutor
+        return f"{self.course.title} | {self.time} | {self.tutor.name}"
 
 
 class Student(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=300)
     cash = models.FloatField(default=0)
-    courses = models.ManyToManyField(CourseTutor, related_name="students", through="StudentCourseTutor",
-                                     through_fields=["student", "course_tutor"])
+    courses = models.ManyToManyField(CourseTutor, related_name="students", through="StudentCourseTutor")
 
     def __str__(self):
         return self.name
@@ -73,7 +72,7 @@ class StudentCourseTutor(models.Model):
     paid = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.student, self.course_tutor
+        return f"{self.student.name} | {self.course_tutor}"
 
 
 class Money(models.Model):

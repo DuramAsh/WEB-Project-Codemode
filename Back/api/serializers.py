@@ -1,12 +1,10 @@
 from rest_framework import serializers
 
-from .models import Tutor, TutorPhoneNumbers, Course, CourseTutor, Student, StudentPhoneNumbers, StudentCourseTutor, \
-    Money
+from .models import *
 
 
 class TutorSerializer(serializers.ModelSerializer):
     phones = serializers.StringRelatedField(many=True, required=False)
-    courses = serializers.StringRelatedField(many=True, required=False)
 
     class Meta:
         model = Tutor
@@ -20,17 +18,17 @@ class TutorPhoneSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.Serializer):
-    id = serializers.PrimaryKeyRelatedField(read_only=True)
+    url = serializers.CharField()
     title = serializers.CharField()
     description = serializers.CharField()
     price = serializers.IntegerField()
     info = serializers.CharField()
-    tutors = serializers.StringRelatedField(many=True, read_only=True)
 
     def create(self, validated_data):
         return Course.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
+        instance.url = validated_data.get('url', instance.url)
         instance.title = validated_data.get('title', instance.title)
         instance.description = validated_data.get('description', instance.description)
         instance.price = validated_data.get('price', instance.price)
@@ -40,17 +38,13 @@ class CourseSerializer(serializers.Serializer):
 
 
 class CourseTutorSerializer(serializers.ModelSerializer):
-    course = serializers.SlugRelatedField(slug_field="title", read_only=True)
-    tutor = serializers.SlugRelatedField(slug_field="name", read_only=True)
-    students = serializers.StringRelatedField(many=True, read_only=True)
-
     class Meta:
         model = CourseTutor
         fields = '__all__'
 
 
 class StudentSerializer(serializers.ModelSerializer):
-    phones = serializers.StringRelatedField(many=True)
+    phones = serializers.StringRelatedField(many=True, required=False)
 
     class Meta:
         model = Student
