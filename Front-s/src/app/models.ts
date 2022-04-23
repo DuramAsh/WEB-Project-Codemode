@@ -48,6 +48,14 @@ export const courses = [
         "info": "Длительность:14 недель Курс преподается с нуля",
         "url": "https://api.iconify.design/mdi/graph-outline.svg?color=%234825c0"  
     },
+    {
+        "id": 3,
+        "title": "ADS",
+        "description": "Алгоритмы и структуры данных",
+        "price": 32000,
+        "info": "Длительность:14 недель Курс преподается с нуля",
+        "url": "https://api.iconify.design/mdi/graph-outline.svg?color=%234825c0"  
+    }
     
 ]
 export interface Tutor{

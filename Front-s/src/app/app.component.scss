@@ -1,21 +1,4 @@
 @import "variables.scss";
-
-
-
-@keyframes change {
-    0% {
-        background-position: 0 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0 50%;
-    }
-}
-
 header {
     display: flex;
     flex-direction: row;
@@ -188,7 +171,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: $screen) {
     header{
         #logo{
             font-size: $header_p_lil;

@@ -1,19 +1,4 @@
 @import "../variables.scss";
-
-@keyframes change {
-    0% {
-        background-position: 0 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0 50%;
-    }
-}
-
 body {
     margin-left: -5%;
     height: $window_h * 0.9;
@@ -34,7 +19,7 @@ body {
             -webkit-text-fill-color: transparent;
             background-size: 400%;
 
-            animation: change 20s ease infinite;
+            animation: change 20s ease-in-out infinite;
         }
 
         font-size: $course_title_big;
@@ -62,7 +47,7 @@ body {
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 3%;
+            margin-bottom: 4%;
 
             & .logo {
                 margin-top: -10%;
@@ -110,6 +95,11 @@ body {
                     font-weight: bold;
                     display: inline-block;
                     height: 64px;
+                    background: -webkit-linear-gradient(20deg, #4825c0, #d71f5a);
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-size: 400%;
+                    animation: change 20s ease infinite;
                 }
     
                 & .info {
@@ -145,6 +135,71 @@ body {
                     background: -webkit-linear-gradient(20deg, #4825c0, #d71f5a);
                     background-clip: text;
                     -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: $screen) {
+    body{
+        .title{
+            margin-top: 4%;
+            i{
+                font-size: $course_i_lil;
+            }
+            font-size: $course_i_lil;
+        }
+        .block{
+            margin-top: 5%;
+            gap: $course_gap_lil;
+
+            .each{
+                width: 100%;
+                width: $course_each_w_lil;
+                height: $course_each_v_lil;
+                margin-bottom: 8%;
+
+                & .logo{
+                    width: $course_logo_w_lil;
+                    height: $course_logo_w_lil;
+                    margin-top: -17.5%;
+                }
+
+                .content{
+                    height: 70%;
+                    width: 100%;
+                    & .title{
+                        width: 103%;
+                        font-size: $course_title_lil_lil;
+                        height: 20px;
+                    }
+
+                    & .description{
+                        font-size: $course_desc_lil;
+                    }
+
+                    & span{
+                        font-size: $course_desc_lil;
+                    }
+
+                    & .price{
+                        font-size: $course_price_lil;
+                        height: 40px;
+                    }
+
+                    & .info{
+                        font-size: $course_info_lil;
+                    }
+                    margin-bottom: 25%;
+                }
+
+                .btn{
+                    padding: 1% 2%;
+                    p{
+                        font-size: $course_p_lil;
+                    }
                 }
             }
         }

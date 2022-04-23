@@ -1,3 +1,17 @@
+@keyframes change {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
 //Colors
 $main-color: #4825c0;
 $accent: #f01e61;
@@ -6,6 +20,7 @@ $accent-2: #d71f5a;
 //Size variables
 $window_w: 100vw;
 $window_h: 100vh;
+$screen: 416px;
 
 //Header
 $header_p_big: 18px;
@@ -48,11 +63,21 @@ $contact_title_big: 36px;
 //Courses
 $course_title_big: 32px;
 $course_title_lil: 22px;
+$course_title_lil_lil: 12px;
 $course_desc_big: 16px;
+$course_desc_lil: 9px;
 $course_price_big: 25px;
+$course_price_lil: 10px;
 $course_info_big: 20px;
+$course_info_lil: 9px;
 $courses_gap_big: 8%;
+$course_gap_lil: 2%;
 $course_each_v: 35vh;
+$course_each_v_lil: 25vh;
 $course_each_w: 21vw;
+$course_each_w_lil: 32vw;
 $course_logo_w: 4vw;
+$course_logo_w_lil: 10vw;
 $course_p_big: 16px;
+$course_p_lil: 8px;
+$course_i_lil: 20px;
