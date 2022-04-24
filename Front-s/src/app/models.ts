@@ -66,5 +66,5 @@ export interface Tutor{
 }
 
 export interface Token{
-    token: string;
+    access: string;
 }
