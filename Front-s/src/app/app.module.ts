@@ -12,6 +12,10 @@ import { LogRegComponent } from './log-reg/log-reg.component';
 import { OfferComponent } from './offer/offer.component';
 import { TutorsComponent } from './tutors/tutors.component';
 
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {AuthInterceptor} from './AuthInterceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +30,17 @@ import { TutorsComponent } from './tutors/tutors.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

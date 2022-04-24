@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {Course, courses} from '../models';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-course-detail',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseDetailComponent implements OnInit {
 
-  constructor() { }
+  course! : Course;
+  loaded: boolean = false;
+
+  constructor(private route: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit(): void {
+    this.getCourse();
+  }
+
+  getCourse(){
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('title') || '0';
+      this.loaded = false;
+      this.course = courses.find(c => c.title === id) ?? courses[0];
+      this.loaded = true;
+    });
   }
 
 }

@@ -42,12 +42,60 @@ body {
             background-color: white;
             color: $main-color;
             border: 3px solid $main-color;
-            border-radius: 20px;
+            border-radius: 17px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 4%;
+            transition: all 250ms;
+            touch-action: manipulation;
+
+            &:hover{
+                transform: scale(1.05);
+                border-radius: 17px;
+            }
+            &:before{
+                content: '';
+                // background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+                background: linear-gradient(90deg, rgba(72, 37, 192, 1) 0%, rgba(215, 31, 90, 1) 33%, rgba(72, 37, 192, 1) 67%, rgba(215, 31, 90, 1) 100%);
+                position: absolute;
+                top: -2px;
+                left:-2px;
+                background-size: 400%;
+                z-index: -1;
+                filter: blur(5px);
+                width: calc(100% + 4px);
+                height: calc(100% + 4px);
+                animation: glowing 20s linear infinite;
+                opacity: 0;
+                transition: opacity .3s ease-in-out;
+                border-radius: 17px;
+            }
+
+            &:active{
+                background: white;
+            }
+
+            &:active:after{
+                background: white;
+            }
+
+            &:hover:before{
+                opacity: 1;
+            }
+
+            &:after{
+                z-index: -1;
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: white;
+                left: 0;
+                top: 0;
+                border-radius: 17px;
+            }
 
             & .logo {
                 margin-top: -10%;
@@ -127,6 +175,48 @@ body {
 
                 &:hover {
                     transform: scale(1.05);
+                }
+
+                &:before{
+                    content: '';
+                    // background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+                    background: linear-gradient(90deg, rgba(72, 37, 192, 1) 0%, rgba(215, 31, 90, 1) 33%, rgba(72, 37, 192, 1) 67%, rgba(215, 31, 90, 1) 100%);
+                    position: absolute;
+                    top: -2px;
+                    left:-2px;
+                    background-size: 400%;
+                    z-index: -1;
+                    filter: blur(5px);
+                    width: calc(100% + 4px);
+                    height: calc(100% + 4px);
+                    animation: glowing 20s linear infinite;
+                    opacity: 0;
+                    transition: opacity .3s ease-in-out;
+                    border-radius: 12px;
+                }
+    
+                &:active{
+                    color: white;
+                }
+    
+                &:active:after{
+                    background: white;
+                }
+    
+                &:hover:before{
+                    opacity: 1;
+                }
+    
+                &:after{
+                    z-index: -1;
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: white;
+                    left: 0;
+                    top: 0;
+                    border-radius: 12px;
                 }
 
                 & p {

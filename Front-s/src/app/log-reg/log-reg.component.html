@@ -1,1 +1,13 @@
-<a routerLink="/authorize/offer">View public offer</a>
+<body>
+    <div class="login" *ngIf="!logged">
+        <div class="form">
+          <p class="title">Добро пожаловать!</p>
+          <p class="title lil">Начни свой звездный путь в IT</p>
+          <input type="text" placeholder="Имя пользователя" [(ngModel)]="username">
+          <input type="password" placeholder="Пароль" [(ngModel)]="password">
+          <button class="btn" (click)="login()"><p>Войти</p></button>
+          <a routerLink="/authorize/offer">Регистрируясь вы принимаете публичную оферту</a>
+        </div>
+    </div>
+</body>
+

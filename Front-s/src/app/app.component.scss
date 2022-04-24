@@ -1,4 +1,5 @@
 @import "variables.scss";
+
 header {
     display: flex;
     flex-direction: row;
@@ -53,8 +54,7 @@ header {
     .right {
         display: flex;
         flex-direction: row;
-        width: $window_w / 2;
-        // justify-content: space-around;
+        width: $window_w * 0.5;
         gap: $header_right_gap_big;
         align-items: center;
     }
@@ -85,14 +85,14 @@ header {
         &:hover {
             transform: scale(1.05);
         }
-        
+
         & p {
             background: -webkit-linear-gradient(20deg, #4825c0, #d71f5a);
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        & i{
+        & i {
             margin: 0;
             padding: 0;
             font-size: 0px;
@@ -135,15 +135,16 @@ footer {
         margin-top: 1.5%;
         display: flex;
         flex-direction: column;
-        & .topics{
-            font-size: $footer_p_big + 2px; 
+
+        & .topics {
+            font-size: $footer_p_big + 2px;
             margin-bottom: 4%;
         }
     }
 
-    .third{
-        .icons{
-            i{
+    .third {
+        .icons {
+            i {
                 width: $footer_i_big;
             }
         }
@@ -154,7 +155,8 @@ footer {
         flex-direction: row;
         align-items: center;
         padding-bottom: 7%;
-        & i{
+
+        & i {
             margin-right: 2%;
         }
     }
@@ -172,30 +174,35 @@ footer {
 }
 
 @media screen and (max-width: $screen) {
-    header{
-        #logo{
+    header {
+        #logo {
             font-size: $header_p_lil;
             margin-left: 2%;
-            i{
+
+            i {
                 font-size: $header_i_lil;
             }
         }
 
-        p{
+        p {
             font-size: $header_p_lil;
         }
+
         gap: $header_gap_lil;
-        .right{
+
+        .right {
             gap: $header_right_gap_lil;
         }
-        .login{
+
+        .login {
             border-radius: 10px;
             padding: 4% 7%;
-            p{
+
+            p {
                 font-size: 0px;
             }
 
-            & i{
+            & i {
                 font-size: 17px;
                 background: -webkit-linear-gradient(20deg, #4825c0, #d71f5a);
                 background-clip: text;
@@ -204,14 +211,14 @@ footer {
         }
     }
 
-    body{
+    body {
         height: $window_h;
     }
 
-    footer{
-        
+    footer {
+
         height: $window_h * 0.2;
-        
+
         font-size: $footer_p_lil;
         padding-left: 5%;
 
@@ -223,25 +230,27 @@ footer {
             margin-top: 1.5%;
             display: flex;
             flex-direction: column;
-            & .topics{
-                font-size: $footer_p_lil + 2px; 
+
+            & .topics {
+                font-size: $footer_p_lil + 2px;
                 margin-bottom: 4%;
             }
         }
 
-        .third{
-            .icons{
-                i{
+        .third {
+            .icons {
+                i {
                     width: $footer_icons_lil;
                 }
             }
-            .material-icons{
+
+            .material-icons {
                 font-size: $footer_icons_lil;
             }
         }
 
-        .each{
-            i{
+        .each {
+            i {
                 font-size: $footer_i_lil;
             }
         }

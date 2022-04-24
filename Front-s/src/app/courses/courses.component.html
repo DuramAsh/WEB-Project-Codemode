@@ -1,8 +1,8 @@
 <body>
     <p class="title"><i class="material-icons">circle</i>Наши курсы</p>
     <div class="block">
-        <div *ngFor="let course of courses" class="each">
-            <div class="logo">
+        <div *ngFor="let course of courses" class="each" [routerLink]="['/courses/', course.title]">
+            <div class="logo" >
                 <i class="icons" style="content: url('{{course.url}}');"></i>
             </div>
             <div class="content">
@@ -11,7 +11,7 @@
                 <span><p class="price">{{course.price | currency:'KZT':'symbol-narrow':'.0'}}</p>/за месяц</span> 
                 <p class="info">{{course.info}}</p>
             </div>
-            <button class="btn"><p>Записаться на курс</p></button>
+            <button class="btn" routerLink="../authorize"><p>Записаться на курс</p></button>
         </div>
     </div>
 </body>

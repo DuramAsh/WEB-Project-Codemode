@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Course, courses} from '../models';
+import {Course} from '../models';
+import { UniServiceService } from '../uni-service.service';
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
@@ -7,19 +8,19 @@ import {Course, courses} from '../models';
 })
 export class CoursesComponent implements OnInit {
 
-
+  id!: number;
   courses!: Course[];
   loaded!: boolean;
-  constructor() { }
+  constructor(private service: UniServiceService) { }
 
   ngOnInit(): void {
     this.getCourses();
   }
 
   getCourses() {
-    this.loaded = false;
-    this.courses = courses;
-    this.loaded = true;
+    this.service.getCourses().subscribe(courses => {
+      this.courses = courses;
+    });
   }
 
 }

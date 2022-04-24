@@ -8,8 +8,8 @@
     <p routerLink="tutors" routerLinkActive="active">Преподаватели</p>
     <p routerLink="info" routerLinkActive="active">Отзывы</p>
     <p routerLink="contacts" routerLinkActive="active">Контакты</p>
-    <button class="btn login" routerLink="authorize" role="button">
-      <p>Войти</p><i class="material-icons">login</i>
+    <button class="btn login" [routerLink]="!logged ? ['/authorize'] : []" (click)="logged && logout()" role="button">
+      <p *ngIf="!logged">Войти</p><p *ngIf="logged">Выйти</p><i class="material-icons login" *ngIf="!logged">login</i><i class="material-icons logout" *ngIf="logged">logout</i>
     </button>
   </div>
 
