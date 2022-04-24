@@ -8,10 +8,11 @@ class Tutor(models.Model):
     class Meta:
         verbose_name = 'Tutor'
         verbose_name_plural = 'Tutors'
-    url = models.CharField(max_length=512, default="")
+    url = models.URLField(max_length=300, default="")
     name = models.CharField(max_length=300)
     email = models.EmailField(max_length=300)
     info = models.TextField(max_length=1024)
+    image_url = models.URLField(max_length=300, default="")
 
     def __str__(self):
         return self.name
@@ -36,7 +37,7 @@ class Course(models.Model):
     description = models.TextField(max_length=300)
     price = models.IntegerField(default=0)
     info = models.TextField(max_length=300)
-    url = models.CharField(max_length=512, default="")
+    url = models.URLField(max_length=300, default="")
     tutors = models.ManyToManyField(Tutor, related_name="courses", through="CourseTutor")
 
     def __str__(self):
