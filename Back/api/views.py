@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from .serializers import *
 
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 from .models import Tutor, Student, Course
@@ -57,6 +58,7 @@ def post_teacher_phone(request):
 
 
 class StudentView(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         students = Student.objects.all()
         serializer = StudentSerializer(students, many=True)
@@ -71,6 +73,7 @@ class StudentView(APIView):
 
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def post_student_phone(request):
     serializer = StudentPhoneSerializer(data=request.data)
     if serializer.is_valid():
@@ -80,6 +83,7 @@ def post_student_phone(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([IsAuthenticated])
 def student_details(request, id):
     try:
         student = Student.objects.get(pk=id)
@@ -136,6 +140,7 @@ def course_details(request, id):
 
 
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
 def student_courses(request, id):
     if request.method == 'GET':
         courses = Student.objects.get(pk=id).courses.all()
