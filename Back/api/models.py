@@ -5,6 +5,7 @@ from django.db import models
 
 
 class Tutor(models.Model):
+    url = models.CharField(max_length=512, default="")
     name = models.CharField(max_length=300)
     email = models.EmailField(max_length=300)
     info = models.TextField(max_length=1024)
