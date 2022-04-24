@@ -5,6 +5,9 @@ from django.db import models
 
 
 class Tutor(models.Model):
+    class Meta:
+        verbose_name = 'Tutor'
+        verbose_name_plural = 'Tutors'
     url = models.CharField(max_length=512, default="")
     name = models.CharField(max_length=300)
     email = models.EmailField(max_length=300)
@@ -15,6 +18,9 @@ class Tutor(models.Model):
 
 
 class TutorPhoneNumbers(models.Model):
+    class Meta:
+        verbose_name = 'Phone number of some tutor'
+        verbose_name_plural = 'Phone numbers of some tutors'
     tutor = models.ForeignKey(Tutor, related_name="phones", on_delete=models.CASCADE)
     phone = models.CharField(max_length=20)
 
@@ -23,11 +29,14 @@ class TutorPhoneNumbers(models.Model):
 
 
 class Course(models.Model):
-    url = models.CharField(max_length=512, default="")
+    class Meta:
+        verbose_name = 'Course'
+        verbose_name_plural = 'Courses'
     title = models.CharField(max_length=300)
     description = models.TextField(max_length=300)
     price = models.IntegerField(default=0)
     info = models.TextField(max_length=300)
+    url = models.CharField(max_length=512, default="")
     tutors = models.ManyToManyField(Tutor, related_name="courses", through="CourseTutor")
 
     def __str__(self):
@@ -35,6 +44,9 @@ class Course(models.Model):
 
 
 class CourseTutor(models.Model):
+    class Meta:
+        verbose_name = 'Course-Tutor'
+        verbose_name_plural = 'Courses-Tutors'
     course = models.ForeignKey(
         Course, on_delete=models.CASCADE, blank=True, null=True)
     tutor = models.ForeignKey(
@@ -48,6 +60,9 @@ class CourseTutor(models.Model):
 
 
 class Student(models.Model):
+    class Meta:
+        verbose_name = 'Student'
+        verbose_name_plural = 'Students'
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=300)
     cash = models.FloatField(default=0)
@@ -58,6 +73,9 @@ class Student(models.Model):
 
 
 class StudentPhoneNumbers(models.Model):
+    class Meta:
+        verbose_name = 'Student and his phone number'
+        verbose_name_plural = 'Students and their phone numbers'
     student = models.ForeignKey(Student, related_name="phones", on_delete=models.CASCADE)
     phone = models.CharField(max_length=20)
 
@@ -66,6 +84,9 @@ class StudentPhoneNumbers(models.Model):
 
 
 class StudentCourseTutor(models.Model):
+    class Meta:
+        verbose_name = 'Student and Course-Tutors'
+        verbose_name_plural = 'Student and Course-Tutors'
     student = models.ForeignKey(
         Student, on_delete=models.CASCADE, blank=True, null=True)
     course_tutor = models.ForeignKey(
@@ -77,6 +98,9 @@ class StudentCourseTutor(models.Model):
 
 
 class Money(models.Model):
+    class Meta:
+        verbose_name = 'Money'
+        verbose_name_plural = 'Money'
     student = models.ForeignKey(
         Student, on_delete=models.CASCADE, blank=True, null=True)
     time = models.DateTimeField(auto_now_add=True)
