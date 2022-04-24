@@ -9,10 +9,9 @@ export class AppComponent {
   title = 'Front-s';
   constructor(private service: UniServiceService){}
 
-  logged = this.service.getLog();
+  logged = this.service.logged;
 
   logout() {
-    this.service.setLogout();
     this.logged = false;
     localStorage.removeItem('token');
   }

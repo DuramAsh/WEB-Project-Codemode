@@ -10,14 +10,13 @@ export class LogRegComponent implements OnInit {
 
   username = '';
   password = '';
-  logged = this.service.getLog();
+  logged = this.service.logged;
 
   constructor(private service: UniServiceService) { }
 
   ngOnInit(): void {
     const token = localStorage.getItem('token');
     if (token) {
-      this.service.setLogin();
       this.logged = true;
     }
   }
@@ -27,7 +26,6 @@ export class LogRegComponent implements OnInit {
 
       localStorage.setItem('token', data.token);
 
-      this.service.setLogin();
       this.logged = true;
       this.username = '';
       this.password = '';

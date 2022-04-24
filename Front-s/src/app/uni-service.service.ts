@@ -28,18 +28,6 @@ export class UniServiceService {
   getCourse(id: number): Observable<Course>{
     return this.client.get<Course>(`${this.ROOT_URL}/courses/${id}/`);
   }
-
-  setLogout(): void{
-    this.logged = false;
-  }
-
-  setLogin(): void{
-    this.logged = true;
-  }
-
-  getLog(): boolean{
-    return this.logged;
-  }
 }
 
 
