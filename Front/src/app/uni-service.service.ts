@@ -52,6 +52,10 @@ export class UniServiceService {
     return this.client.get<Course[]>(`${this.ROOT_URL}/courses/`);
   }
 
+  getTutors(): Observable<Tutor[]> {
+    return this.client.get<Tutor[]>(`${this.ROOT_URL}/tutors/`);
+  }
+
   getCourse(id: number): Observable<Course> {
     return this.client.get<Course>(`${this.ROOT_URL}/courses/${id}/`);
   }

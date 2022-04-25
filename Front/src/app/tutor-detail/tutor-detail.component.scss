@@ -12,7 +12,7 @@ body{
             display: flex;
             flex-direction: row;
             align-items: center;
-            width: 40%;
+            width: 70%;
             height: $detial_title_h;
             padding: 1% 1%;
             border-radius: 20px;
@@ -235,8 +235,10 @@ body{
                     margin-right: 2%;
                 }
                 & .title{
-                    font-size: $detial_title_lil; 
-                    font-weight: bold;   
+                    
+                    font-size: $tutor_title_lil; 
+                    font-weight: bold;  
+                    text-align: center; 
                 }
             }
 

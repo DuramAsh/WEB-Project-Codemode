@@ -17,6 +17,7 @@ import {FormsModule} from '@angular/forms';
 import {AuthInterceptor} from './AuthInterceptor';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { TutorDetailComponent } from './tutor-detail/tutor-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FooterComponent } from './footer/footer.component';
     OfferComponent,
     TutorsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TutorDetailComponent
   ],
   imports: [
     BrowserModule,

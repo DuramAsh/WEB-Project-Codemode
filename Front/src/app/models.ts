@@ -61,8 +61,11 @@ export const courses = [
 export interface Tutor{
     id: number;
     name: string;
-    description: string;
-    salary: number;
+    info: string;
+    email: string;
+    url: string;
+    image_url: string;
+    phones: string[];
 }
 
 export interface Token{

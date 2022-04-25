@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { InfoComponent } from './info/info.component';
 import { LogRegComponent } from './log-reg/log-reg.component';
 import { OfferComponent } from './offer/offer.component';
+import { TutorDetailComponent } from './tutor-detail/tutor-detail.component';
 import { TutorsComponent } from './tutors/tutors.component';
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'courses', component: CoursesComponent },
   { path: 'courses/:title', component: CourseDetailComponent },
   { path: 'tutors', component: TutorsComponent },
+  { path: 'tutors/:id', component: TutorDetailComponent },
   { path: 'info', component: InfoComponent },
   { path: 'contacts', component: ContactsComponent },
 ];

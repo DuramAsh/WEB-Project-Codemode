@@ -15,6 +15,17 @@
         </div>
     </div> -->
     <div class="each">
-        {{course.title}}
+        <div class="main">
+            <img src="{{course.url}}" class="logo">
+            <p class="title">Курс: {{course.title}}</p>
+        </div>
+        
+        <div class="content">
+            <p class="desc">{{course.description}}</p>
+            <p class="price">Цена: {{course.price | currency:'KZT':'symbol-narrow':'.0'}}</p>
+            <p class="info">{{course.info}}</p>
+        </div>
+
+        <button class="btn" routerLink="/authorize"><p>Записаться на курс</p></button>
     </div>
 </body>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UniServiceService } from '../uni-service.service';
+import {Tutor} from '../models';
 @Component({
   selector: 'app-tutors',
   templateUrl: './tutors.component.html',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TutorsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: UniServiceService) { }
+  
+  loaded: boolean = false;
+  tutors: Tutor[] = [];
 
   ngOnInit(): void {
+    this.getTutors();
+  }
+
+  getTutors(){
+    this.service.getTutors().subscribe(tutors => {
+      this.tutors = tutors;
+      this.loaded = true;
+    })
   }
 
 }
