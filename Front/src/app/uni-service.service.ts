@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Token, Course, Tutor } from './models';
 
 @Injectable({
@@ -8,16 +8,43 @@ import { Token, Course, Tutor } from './models';
 })
 export class UniServiceService {
 
-  logged = false;
+  logged : any;
 
-  ROOT_URL = 'http://127.0.0.1:8000/api';
-  constructor(private client: HttpClient) { }
+  logChange: Subject<boolean> = new Subject<boolean>();
+
+  ROOT_URL = 'http://192.168.0.113:8000/api';
+
+  constructor(private client: HttpClient) { 
+    this.logChange.subscribe(value =>{
+      this.logged = value;
+    })
+  }
+
+  setFalse(){
+    this.logged = false;
+  }
+
+  setTrue(){
+    this.logged = true;
+  }
 
   login(username: string, password: string): Observable<Token> {
     return this.client.post<Token>(`${this.ROOT_URL}/login/`, {
       username,
       password
     });
+  }
+  
+  refresh(): Observable<Token> {
+    const token = localStorage.getItem('refresh');
+    return this.client.post<Token>(`${this.ROOT_URL}/login/refresh/`, {
+      token
+    });
+  }
+
+  logout() {
+    this.logged = false;
+    localStorage.removeItem('access');
   }
 
 

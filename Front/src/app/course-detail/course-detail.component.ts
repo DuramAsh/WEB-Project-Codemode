@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Course, courses} from '../models';
+import {Course} from '../models';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { UniServiceService } from '../uni-service.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -14,7 +15,7 @@ export class CourseDetailComponent implements OnInit {
   loaded: boolean = false;
 
   constructor(private route: ActivatedRoute,
-    private location: Location) { }
+    private location: Location, private service: UniServiceService) { }
 
   ngOnInit(): void {
     this.getCourse();
@@ -24,7 +25,10 @@ export class CourseDetailComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const id = params.get('title') || '0';
       this.loaded = false;
-      this.course = courses.find(c => c.title === id) ?? courses[0];
+      this.service.getCourses().subscribe(courses =>{
+        this.course = courses.find(c => c.title === id) ?? courses[0];
+      }
+      );
       this.loaded = true;
     });
   }

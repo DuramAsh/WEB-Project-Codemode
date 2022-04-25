@@ -15,6 +15,8 @@ import { TutorsComponent } from './tutors/tutors.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {AuthInterceptor} from './AuthInterceptor';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {AuthInterceptor} from './AuthInterceptor';
     InfoComponent,
     LogRegComponent,
     OfferComponent,
-    TutorsComponent
+    TutorsComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

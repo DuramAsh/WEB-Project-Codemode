@@ -244,22 +244,25 @@ body {
         .block{
             margin-top: 5%;
             gap: $course_gap_lil;
+            flex-flow: column;
+            width: 100%;
 
             .each{
-                width: 100%;
-                width: $course_each_w_lil;
+                width: 90%;
                 height: $course_each_v_lil;
-                margin-bottom: 8%;
+                margin-bottom: 9%;
 
                 & .logo{
                     width: $course_logo_w_lil;
                     height: $course_logo_w_lil;
-                    margin-top: -17.5%;
+                    border-radius: 10px;
+                    margin-top: -19px;
+                    
                 }
 
                 .content{
                     height: 70%;
-                    width: 100%;
+                    width: 98%;
                     & .title{
                         width: 103%;
                         font-size: $course_title_lil_lil;
@@ -282,11 +285,11 @@ body {
                     & .info{
                         font-size: $course_info_lil;
                     }
-                    margin-bottom: 25%;
                 }
 
                 .btn{
-                    padding: 1% 2%;
+                    margin-top: 6%;
+                    padding: 2% 4%;
                     p{
                         font-size: $course_p_lil;
                     }
