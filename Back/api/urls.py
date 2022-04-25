@@ -21,5 +21,7 @@ urlpatterns = [
 
     path('courses/', CourseView.as_view()),
     path('courses/<int:id>/', course_details),
-    path('courses/<int:id>/tutors/', course_tutors)
+    path('courses/<int:id>/tutors/', course_tutors),
+    path('courses/<int:id>/comments/', course_comments),
+    path('comments/', comments_list),
 ]

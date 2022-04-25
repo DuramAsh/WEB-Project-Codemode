@@ -12,7 +12,7 @@ class Tutor(models.Model):
     name = models.CharField(max_length=300)
     email = models.EmailField(max_length=300)
     info = models.TextField(max_length=1024)
-    image_url = models.URLField(max_length=300, default="")
+    image_url = models.URLField(max_length=300, default="", blank=True)
 
     def __str__(self):
         return self.name
@@ -29,37 +29,6 @@ class TutorPhoneNumbers(models.Model):
         return self.phone
 
 
-class Course(models.Model):
-    class Meta:
-        verbose_name = 'Course'
-        verbose_name_plural = 'Courses'
-    title = models.CharField(max_length=300)
-    description = models.TextField(max_length=300)
-    price = models.IntegerField(default=0)
-    info = models.TextField(max_length=300)
-    url = models.URLField(max_length=300, default="")
-    tutors = models.ManyToManyField(Tutor, related_name="courses", through="CourseTutor")
-
-    def __str__(self):
-        return self.title
-
-
-class CourseTutor(models.Model):
-    class Meta:
-        verbose_name = 'Course-Tutor'
-        verbose_name_plural = 'Courses-Tutors'
-    course = models.ForeignKey(
-        Course, on_delete=models.CASCADE, blank=True, null=True)
-    tutor = models.ForeignKey(
-        Tutor, on_delete=models.CASCADE, blank=True, null=True)
-    status = models.CharField(max_length=300)
-    time = models.CharField(max_length=300)
-    amount = models.IntegerField(default=0)
-
-    def __str__(self):
-        return f"{self.course.title} | {self.time} | {self.tutor.name}"
-
-
 class Student(models.Model):
     class Meta:
         verbose_name = 'Student'
@@ -67,7 +36,6 @@ class Student(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=300)
     cash = models.FloatField(default=0)
-    courses = models.ManyToManyField(CourseTutor, related_name="students", through="StudentCourseTutor")
 
     def __str__(self):
         return self.name
@@ -84,6 +52,40 @@ class StudentPhoneNumbers(models.Model):
         return self.phone
 
 
+class Course(models.Model):
+    class Meta:
+        verbose_name = 'Course'
+        verbose_name_plural = 'Courses'
+
+    title = models.CharField(max_length=300)
+    description = models.TextField(max_length=300)
+    price = models.IntegerField(default=0)
+    info = models.TextField(max_length=300)
+    url = models.URLField(max_length=300, default="")
+    tutors = models.ManyToManyField(Tutor, related_name="courses", through="CourseTutor")
+    commented_by = models.ManyToManyField(Student, through="StudentCourseComment")
+
+    def __str__(self):
+        return self.title
+
+
+class CourseTutor(models.Model):
+    class Meta:
+        verbose_name = 'Course-Tutor'
+        verbose_name_plural = 'Courses-Tutors'
+    course = models.ForeignKey(
+        Course, on_delete=models.CASCADE, blank=True, null=True)
+    tutor = models.ForeignKey(
+        Tutor, on_delete=models.CASCADE, blank=True, null=True)
+    students = models.ManyToManyField(Student, related_name="courses", through="StudentCourseTutor")
+    status = models.CharField(max_length=300)
+    time = models.CharField(max_length=300)
+    amount = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.course.title} | {self.time} | {self.tutor.name}"
+
+
 class StudentCourseTutor(models.Model):
     class Meta:
         verbose_name = 'Student and Course-Tutors'
@@ -96,6 +98,15 @@ class StudentCourseTutor(models.Model):
 
     def __str__(self):
         return f"{self.student.name} | {self.course_tutor}"
+
+
+class StudentCourseComment(models.Model):
+    class Meta:
+        verbose_name = "Student's course comment"
+        verbose_name_plural = "Students' course comments"
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    comment = models.TextField(max_length=512)
 
 
 class Money(models.Model):

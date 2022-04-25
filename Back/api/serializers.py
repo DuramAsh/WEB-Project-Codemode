@@ -63,6 +63,12 @@ class StudentCourseTutorSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class StudentCourseCommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StudentCourseComment
+        fields = '__all__'
+
+
 class MoneySerializer(serializers.Serializer):
     student_id = serializers.PrimaryKeyRelatedField(queryset=Money.objects.all())
     time = serializers.DateTimeField()
@@ -72,3 +78,6 @@ class MoneySerializer(serializers.Serializer):
 
     def create(self, validated_data):
         return Money.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        pass

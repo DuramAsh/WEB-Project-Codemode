@@ -188,3 +188,25 @@ def course_tutors(request, id):
         return Response(serializer.errors)
 
 
+@api_view(['GET', 'POST'])
+def course_comments(request, id):
+    if request.method == 'GET':
+        course = Course.objects.get(pk=id)
+        comments = course.studentcoursecomment_set.all()
+        serializer = StudentCourseCommentSerializer(comments, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    elif request.method == 'POST':
+        data = request.data
+        data["course"] = id
+        serializer = StudentCourseCommentSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors)
+
+
+@api_view(['GET'])
+def comments_list(request):
+    comments = StudentCourseComment.objects.all()
+    serializer = StudentCourseCommentSerializer(comments, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
