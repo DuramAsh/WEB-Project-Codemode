@@ -9,13 +9,9 @@ import { Location } from '@angular/common'
 export class OfferComponent implements OnInit {
 
 
-  constructor(private location: Location) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  back(): void {
-    this.location.back();
   }
 
 }
