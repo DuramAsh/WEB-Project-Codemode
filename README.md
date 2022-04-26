@@ -1,20 +1,11 @@
 <div id="top"></div>
 
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
 [![MIT License][license-shield]][license-url]
-
+[![Github][github-shield]][github-url]
+[![Instagram][insta-shield]][insta-url]
+[![Telegram][tele-shield]][tele-url]
 
 
 
@@ -22,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Nura-21/WEB-Project-Codemode">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">Codemode - IT School</h3>
@@ -71,22 +62,23 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![HomePage][product-screenshot]]
+![HomePage][product-screenshot]
 
 <div align="center">
     <div align="center">
-        <img src="images/screenshot1.png" alt="Logo" width="33%">
-        <img src="images/screenshot2.png" alt="Logo" width="33%">
-        <img src="images/screenshot3.png" alt="Logo" width="33%">
+        <img src="images/screenshot1.png" alt="Logo" width="32%">
+        <img src="images/screenshot2.png" alt="Logo" width="32%">
+        <img src="images/screenshot3.png" alt="Logo" width="32%">
     </div>
     <div align="center">
-        <img src="images/screenshot4.png" alt="Logo" width="33%">
-        <img src="images/screenshot5.png" alt="Logo" width="33%">
-        <img src="images/screenshot6.png" alt="Logo" width="33%">
+        <img src="images/screenshot4.png" alt="Logo" width="32%">
+        <img src="images/screenshot5.png" alt="Logo" width="32%">
+        <img src="images/screenshot6.png" alt="Logo" width="32%">
     </div>
 </div>
 
-This is not just a study project that we will then abandon, _it is small for the whole world, but something big for us._ We, as young programmers, decided to do something of our own, something for ourselves. Perhaps in the future this site will be hosted and it will be possible to fully use it, but for now it is just a project.
+This is not just a study project that we will then abandon, _it is small for the whole world, but something big for us._ 
+We, as young programmers, decided to do something of our own, something for ourselves. Perhaps in the future this site will be hosted and it will be possible to fully use it, but for now it is just a project.
 
 We didn't have our own designer, so don't judge too harshly. The design was built on the fly and not in the most optimized way. It's good that we decided to do on SCSS.
 
@@ -236,15 +228,13 @@ Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Code
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/badge/Contributors-4805c5?style=for-the-badge
 [contributors-url]: https://github.com/Nura-21/WEB-Project-Codemode/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/badge/Stars-4805c5?style=for-the-badge
 [stars-url]: https://github.com/Nura-21/WEB-Project-Codemode/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/Nura-21/WEB-Project-Codemode.svg?style=for-the-badge
 [issues-url]: https://github.com/Nura-21/WEB-Project-Codemode/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/badge/LICENSE-4805c5?style=for-the-badge
 [license-url]: https://github.com/Nura-21/WEB-Project-Codemode/blob/master/LICENSE.txt
 [product-screenshot]: images/screenshot.png
 [product-screenshot1]: images/screenshot1.png
@@ -253,3 +243,9 @@ Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Code
 [product-screenshot4]: images/screenshot4.png
 [product-screenshot5]: images/screenshot5.png
 [product-screenshot6]: images/screenshot6.png
+[github-shield]: https://img.shields.io/badge/GitHub-4805c5?style=for-the-badge&logo=GitHub&logoColor=white
+[github-url]: https://github.com/Nura-21/WEB-Project-Codemode
+[insta-shield]: https://img.shields.io/badge/Instagram-4805c5?style=for-the-badge&logo=Instagram&logoColor=white
+[insta-url]:https://www.instagram.com/codemode.cpp/
+[tele-shield]: https://img.shields.io/badge/Telegram-4805c5?style=for-the-badge&logo=Telegram&logoColor=white
+[tele-url]:https://t.me/codemodecpp
