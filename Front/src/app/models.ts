@@ -71,3 +71,17 @@ export interface Tutor{
 export interface Token{
     access: string;
 }
+
+export interface Info{
+    id: number;
+    comment: string;
+    student: string;
+    course: string;
+}
+
+export interface Student{
+    id: number;
+    name: string;
+    email: string;
+    cash: number;
+}

@@ -1,13 +1,13 @@
 <body>
-    <div class="left">
+    <div class="left animate slide delay-2">
         <p class="title" style="font-weight: bold;"><i class="material-icons-outlined">school</i>Codemode - IT School</p>
         <p class="title lil"><i class="material-icons-outlined">lightbulb</i>Дорога появляется под ногами идущего</p>
         <p class="title lil" style="width: 80%"><i class="material-icons">foundation</i>Школа программирования на базе Казахстанско-Британского Технического Университета.</p>
-        <button class="btn" routerLink="authorize">Записаться на курсы<i class="material-icons">arrow_forward</i></button>
+        <button class="btn animate slide delay-8" [routerLink]="isLogged ? [] : ['/authorize']" (click)="isLogged && toManager()">Записаться на курсы<i class="material-icons">arrow_forward</i></button>
 
         
     </div>
-    <div class="right">
-        <img src="https://ouch-cdn2.icons8.com/_2uDJ10-ae2PpZyzobx2YJpqI5v-4c7IOzqWa9paqMQ/rs:fit:1368:912/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMzAx/L2Y1ZWI5ZGEwLTM3/ZWMtNDUxYy1iODNl/LTVjMzc1NGU5NjQx/NC5zdmc.png" alt="programming image">
+    <div class="right animate blur delay-10">
+        <img src="https://images.unsplash.com/photo-1579547621113-e4bb2a19bdd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=339&q=80" alt="programming image">
     </div>
 </body>

@@ -1,6 +1,6 @@
 
 <body >
-    <div class="login" *ngIf="!isLogged" >
+    <div class="login animate slide delay-3" *ngIf="!isLogged" >
         <div class="form">
           <p class="title">Добро пожаловать!</p>
           <p class="title lil">Начни свой звездный путь в IT</p>
@@ -9,10 +9,6 @@
           <button class="btn" (click)="login()"><p>Войти</p></button>
           <a routerLink="/authorize/offer">Регистрируясь вы принимаете публичную оферту</a>
         </div>
-    </div>
-
-    <div class="exit" *ngIf="isLogged">
-      <button (click)="logout()">Logout</button>
     </div>
 </body>
 
