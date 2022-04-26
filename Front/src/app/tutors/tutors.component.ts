@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UniServiceService } from '../uni-service.service';
 import {Tutor} from '../models';
+import { timer } from 'rxjs';
+
 @Component({
   selector: 'app-tutors',
   templateUrl: './tutors.component.html',
@@ -14,7 +16,7 @@ export class TutorsComponent implements OnInit {
   tutors: Tutor[] = [];
 
   ngOnInit(): void {
-    this.getTutors();
+    timer(this.service.pageLoad).subscribe(x => this.getTutors());
   }
 
   getTutors(){

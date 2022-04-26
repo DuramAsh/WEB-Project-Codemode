@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { Token, Course, Tutor } from './models';
+import { Token, Course, Tutor, Info, Student } from './models';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,13 @@ import { Token, Course, Tutor } from './models';
 export class UniServiceService {
 
   logged : any;
+  pageLoad = 1000;
+  slideLoad = 700;
 
   logChange: Subject<boolean> = new Subject<boolean>();
 
   ROOT_URL = 'http://192.168.0.113:8000/api';
+  // ROOT_URL = 'https://trdln.pythonanywhere.com/api';
 
   constructor(private client: HttpClient) { 
     this.logChange.subscribe(value =>{
@@ -58,6 +61,14 @@ export class UniServiceService {
 
   getCourse(id: number): Observable<Course> {
     return this.client.get<Course>(`${this.ROOT_URL}/courses/${id}/`);
+  }
+
+  getStudent(id: number): Observable<Student> {
+    return this.client.get<Student>(`${this.ROOT_URL}/courses/${id}/`);
+  }
+
+  getInfo(): Observable<any[]> {
+    return this.client.get<any[]>(`${this.ROOT_URL}/comments/`);
   }
 }
 
