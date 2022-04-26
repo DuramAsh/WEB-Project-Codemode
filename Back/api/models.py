@@ -26,7 +26,7 @@ class TutorPhoneNumbers(models.Model):
     phone = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.phone
+        return f"{self.tutor.name} | {self.phone}"
 
 
 class Student(models.Model):
@@ -49,7 +49,7 @@ class StudentPhoneNumbers(models.Model):
     phone = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.phone
+        return f"{self.student.name} | {self.phone}"
 
 
 class Course(models.Model):
@@ -107,6 +107,9 @@ class StudentCourseComment(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     comment = models.TextField(max_length=512)
+
+    def __str__(self):
+        return f"{self.student.name} | {self.course.title} | comment"
 
 
 class Money(models.Model):

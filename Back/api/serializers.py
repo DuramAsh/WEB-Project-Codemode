@@ -68,6 +68,11 @@ class StudentCourseCommentSerializer(serializers.ModelSerializer):
         model = StudentCourseComment
         fields = '__all__'
 
+    def to_representation(self, instance):
+        data = super(StudentCourseCommentSerializer, self).to_representation(instance)
+        data['student'] = Student.objects.get(pk=instance.student.pk).name
+        return data
+
 
 class MoneySerializer(serializers.Serializer):
     student_id = serializers.PrimaryKeyRelatedField(queryset=Money.objects.all())
