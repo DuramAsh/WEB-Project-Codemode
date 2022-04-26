@@ -71,24 +71,18 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]
-[![Product Name Screen Shot][product-screenshot1]]
-[![Product Name Screen Shot][product-screenshot2]]
-[![Product Name Screen Shot][product-screenshot3]]
-[![Product Name Screen Shot][product-screenshot4]]
-[![Product Name Screen Shot][product-screenshot5]]
-[![Product Name Screen Shot][product-screenshot6]]
+[![HomePage][product-screenshot]]
 
 <div align="center">
     <div align="center">
-        <img src="images/screenshot.png" alt="Logo" width="30%">
-        <img src="images/screensho2t.png" alt="Logo" width="30%">
-        <img src="images/screenshot3.png" alt="Logo" width="30%">
+        <img src="images/screenshot1.png" alt="Logo" width="33%">
+        <img src="images/screenshot2.png" alt="Logo" width="33%">
+        <img src="images/screenshot3.png" alt="Logo" width="33%">
     </div>
     <div align="center">
-        <img src="images/screenshot4.png" alt="Logo" width="30%">
-        <img src="images/screenshot5.png" alt="Logo" width="30%">
-        <img src="images/screenshot6.png" alt="Logo" width="30%">
+        <img src="images/screenshot4.png" alt="Logo" width="33%">
+        <img src="images/screenshot5.png" alt="Logo" width="33%">
+        <img src="images/screenshot6.png" alt="Logo" width="33%">
     </div>
 </div>
 
@@ -253,9 +247,9 @@ Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Code
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/Nura-21/WEB-Project-Codemode/blob/master/LICENSE.txt
 [product-screenshot]: images/screenshot.png
-[product-screenshot]: images/screenshot1.png
-[product-screenshot]: images/screenshot2.png
-[product-screenshot]: images/screenshot3.png
-[product-screenshot]: images/screenshot4.png
-[product-screenshot]: images/screenshot5.png
-[product-screenshot]: images/screenshot6.png
+[product-screenshot1]: images/screenshot1.png
+[product-screenshot2]: images/screenshot2.png
+[product-screenshot3]: images/screenshot3.png
+[product-screenshot4]: images/screenshot4.png
+[product-screenshot5]: images/screenshot5.png
+[product-screenshot6]: images/screenshot6.png
