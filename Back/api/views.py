@@ -29,7 +29,7 @@ class TutorView(APIView):
 @api_view(['GET', 'PUT', 'DELETE'])
 def tutor_details(request, id):
     try:
-        tutor = Tutor.objects.get(pk=id)
+        tutor = Tutor.objects.get(name=id)
     except Tutor.DoesNotExist as e:
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
@@ -121,7 +121,7 @@ class CourseView(APIView):
 @api_view(['GET', 'PUT', 'DELETE'])
 def course_details(request, id):
     try:
-        course = Course.objects.get(pk=id)
+        course = Course.objects.get(title=id)
     except Course.DoesNotExist as e:
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
@@ -159,7 +159,7 @@ def student_courses(request, id):
 @api_view(['GET', 'POST'])
 def tutor_courses(request, id):
     if request.method == 'GET':
-        courses = Tutor.objects.get(pk=id).courses.all()
+        courses = Tutor.objects.get(name=id).courses.all()
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'POST':
@@ -175,7 +175,7 @@ def tutor_courses(request, id):
 @api_view(['GET', 'POST'])
 def course_tutors(request, id):
     if request.method == 'GET':
-        tutors = Course.objects.get(pk=id).tutors.all()
+        tutors = Course.objects.get(title=id).tutors.all()
         serializer = TutorSerializer(tutors, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'POST':
@@ -191,7 +191,7 @@ def course_tutors(request, id):
 @api_view(['GET', 'POST'])
 def course_comments(request, id):
     if request.method == 'GET':
-        course = Course.objects.get(pk=id)
+        course = Course.objects.get(title=id)
         comments = course.studentcoursecomment_set.all()
         serializer = StudentCourseCommentSerializer(comments, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
