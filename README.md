@@ -222,7 +222,8 @@ Front-End - [Nura](https://www.instagram.com/trdln_/) - n_turdalin@kbtu.kz
 
 Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Codemode)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
+
 [![Adil][instaa-shield]][ia]
 [![Adil][ta-shield]][ta]
 [![Bauka][instab-shield]][ib]
@@ -232,7 +233,7 @@ Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Code
 [![Zhaks][instaz-shield]][iz]
 [![Zhaks][tz-shield]][tz]
 
-
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -266,7 +267,6 @@ Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Code
 [tb-shield]: https://img.shields.io/badge/Bauyrzhan-000?style=for-the-badge&logo=Telegram&logoColor=white
 [tn-shield]: https://img.shields.io/badge/Nurassyl-000?style=for-the-badge&logo=Telegram&logoColor=white
 [tz-shield]: https://img.shields.io/badge/Zhaksylyk-000?style=for-the-badge&logo=Telegram&logoColor=white
-
 [tb]:https://t.me/bbaaurzhan
 [ta]:https://t.me/zhaparka
 [tz]:https://t.me/duramash
@@ -275,25 +275,3 @@ Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Code
 [ib]:https://www.instagram.com/bbaaurzhan/
 [iz]:https://www.instagram.com/jxdrmsh/
 [in]:https://www.instagram.com/trdln_/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
