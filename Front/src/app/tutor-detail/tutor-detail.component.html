@@ -10,8 +10,12 @@
             <p class="phones"><i class="material-icons">phone</i>{{tutor.phones}}</p>
             <a class="link" href="{{tutor.url}}"><i class="material-icons">telegram</i>Telegram</a>
         </div>
-    
-        <button class="btn animate slide delay-10" [routerLink]="isLogged ? [] : ['/authorize']" (click)="isLogged && toManager()"><p>Записаться на курс</p></button>
+        
+        <div class="control animate slide delay-10">
+            <button class="btn" [routerLink]="isLogged ? [] : ['/authorize']" (click)="isLogged && toManager()"><p>Записаться на курс</p></button>
+            <button class="btn" [routerLink]="isLogged ? [] : ['/authorize']" (click)="isLogged && toManager()"><p>Записаться на курс</p></button>
+        </div>
+        
     </div>
 
     <div class="load" *ngIf="!loaded">

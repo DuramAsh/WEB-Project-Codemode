@@ -14,7 +14,8 @@ export class UniServiceService {
 
   logChange: Subject<boolean> = new Subject<boolean>();
 
-  ROOT_URL = 'http://192.168.0.113:8000/api';
+  // ROOT_URL = 'http://192.168.0.113:8000/api';
+  ROOT_URL = 'http://172.16.92.217:8000/api';
   // ROOT_URL = 'https://trdln.pythonanywhere.com/api';
 
   constructor(private client: HttpClient) { 
@@ -59,8 +60,12 @@ export class UniServiceService {
     return this.client.get<Tutor[]>(`${this.ROOT_URL}/tutors/`);
   }
 
-  getCourse(id: number): Observable<Course> {
+  getCourse(id: string): Observable<Course> {
     return this.client.get<Course>(`${this.ROOT_URL}/courses/${id}/`);
+  }
+
+  getTutor(id: string): Observable<Tutor> {
+    return this.client.get<Tutor>(`${this.ROOT_URL}/tutors/${id}/`);
   }
 
   getStudent(id: number): Observable<Student> {

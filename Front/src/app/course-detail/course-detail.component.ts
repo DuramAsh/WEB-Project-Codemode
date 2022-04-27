@@ -22,16 +22,27 @@ export class CourseDetailComponent implements OnInit {
     timer(this.service.pageLoad).subscribe(x => this.getCourse());
   }
 
+  // getCourse(){
+  //   this.route.paramMap.subscribe(params => {
+  //     const id = params.get('title') || '0';
+  //     this.loaded = false;
+  //     this.service.getCourses().subscribe(courses =>{
+  //       this.course = courses.find(c => c.title === id) ?? courses[0];
+  //     }
+  //     );
+  //     this.loaded = true;
+  //   });
+  // }
+
   getCourse(){
     this.route.paramMap.subscribe(params => {
       const id = params.get('title') || '0';
       this.loaded = false;
-      this.service.getCourses().subscribe(courses =>{
-        this.course = courses.find(c => c.title === id) ?? courses[0];
-      }
-      );
+      this.service.getCourse(id).subscribe(course =>{
+        this.course = course
+      })
       this.loaded = true;
-    });
+     })
   }
 
   get isLogged() : boolean {

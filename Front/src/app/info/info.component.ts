@@ -28,7 +28,7 @@ export class InfoComponent implements OnInit {
     this.service.getInfo().subscribe(comments =>{
 
       for(const i of comments){
-        this.service.getCourse(+(i.course)).subscribe( course =>{
+        this.service.getCourse(i.course).subscribe( course =>{
           i.course = course.title;
         }
         );

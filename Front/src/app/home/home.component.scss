@@ -40,6 +40,8 @@ body{
         padding-top: 15%;
         p{
             margin-bottom: 2%;
+            display: flex;
+            align-items: center;
 
             & i{
                 user-select: none;
