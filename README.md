@@ -9,6 +9,9 @@
 
 
 
+
+
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -53,7 +56,6 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -222,6 +224,14 @@ Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Code
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+[![Adil][instaa-shield]][ia]
+[![Adil][ta-shield]][ta]
+[![Bauka][instab-shield]][ib]
+[![Bauka][tb-shield]][tb]
+[![Nura][instan-shield]][in]
+[![Nura][tn-shield]][tn]
+[![Zhaks][instaz-shield]][iz]
+[![Zhaks][tz-shield]][tz]
 
 
 
@@ -249,3 +259,42 @@ Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Code
 [insta-url]:https://www.instagram.com/codemode.cpp/
 [tele-shield]: https://img.shields.io/badge/Telegram-4805c5?style=for-the-badge&logo=Telegram&logoColor=white
 [tele-url]:https://t.me/codemodecpp
+[instan-shield]: https://img.shields.io/badge/Nurassyl-000?style=for-the-badge&logo=Instagram&logoColor=white
+[instaa-shield]: https://img.shields.io/badge/Adil'-000?style=for-the-badge&logo=Instagram&logoColor=white
+[instab-shield]: https://img.shields.io/badge/Bauyrzhan-000?style=for-the-badge&logo=Instagram&logoColor=white
+[instaz-shield]: https://img.shields.io/badge/Zhaksylyk-000?style=for-the-badge&logo=Instagram&logoColor=white
+[ta-shield]: https://img.shields.io/badge/Adil'-000?style=for-the-badge&logo=Telegram&logoColor=white
+[tb-shield]: https://img.shields.io/badge/Bauyrzhan-000?style=for-the-badge&logo=Telegram&logoColor=white
+[tn-shield]: https://img.shields.io/badge/Nurassyl-000?style=for-the-badge&logo=Telegram&logoColor=white
+[tz-shield]: https://img.shields.io/badge/Zhaksylyk-000?style=for-the-badge&logo=Telegram&logoColor=white
+
+[tb]:https://t.me/bbaaurzhan
+[ta]:https://t.me/zhaparka
+[tz]:https://t.me/duramash
+[tn]:https://t.me/trdln
+[ia]:https://www.instagram.com/zhaparrka/
+[ib]:https://www.instagram.com/bbaaurzhan/
+[iz]:https://www.instagram.com/jxdrmsh/
+[in]:https://www.instagram.com/trdln_/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
