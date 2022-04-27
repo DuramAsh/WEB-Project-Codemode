@@ -9,8 +9,8 @@ import { Token, Course, Tutor, Info, Student } from './models';
 export class UniServiceService {
 
   logged : any;
-  pageLoad = 1000;
-  slideLoad = 700;
+  pageLoad = 800;
+  slideLoad = 500;
 
   logChange: Subject<boolean> = new Subject<boolean>();
 
@@ -66,6 +66,14 @@ export class UniServiceService {
 
   getTutor(id: string): Observable<Tutor> {
     return this.client.get<Tutor>(`${this.ROOT_URL}/tutors/${id}/`);
+  }
+
+  getTutorCourse(id: string): Observable<Course[]> {
+    return this.client.get<Course[]>(`${this.ROOT_URL}/tutors/${id}/courses/`);
+  }
+
+  getCourseTutors(id: string): Observable<Tutor[]> {
+    return this.client.get<Tutor[]>(`${this.ROOT_URL}/courses/${id}/tutors/`);
   }
 
   getStudent(id: number): Observable<Student> {

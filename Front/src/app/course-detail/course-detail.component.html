@@ -26,7 +26,11 @@
             <p class="info"><i class="material-icons">timer</i>{{course.info}}</p>
         </div>
 
-        <button class="btn animate slide delay-10" [routerLink]="isLogged ? [] : ['/authorize']" (click)="isLogged && toManager()"><p>Записаться на курс</p></button>
+        <div class="control animate slide delay-10">
+            <button class="btn" [routerLink]="isLogged ? [] : ['/authorize']" (click)="isLogged && toManager()"><p>Записаться на курс</p></button>
+            <button class="btn" routerLink="tutors"><p>Преподаватели</p></button>
+        </div>
+        
     </div>
 
     <div class="load" *ngIf="!loaded">

@@ -18,6 +18,8 @@ import {AuthInterceptor} from './AuthInterceptor';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TutorDetailComponent } from './tutor-detail/tutor-detail.component';
+import { TutorCoursesComponent } from './tutor-courses/tutor-courses.component';
+import { CourseTutorsComponent } from './course-tutors/course-tutors.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { TutorDetailComponent } from './tutor-detail/tutor-detail.component';
     TutorsComponent,
     HeaderComponent,
     FooterComponent,
-    TutorDetailComponent
+    TutorDetailComponent,
+    TutorCoursesComponent,
+    CourseTutorsComponent
   ],
   imports: [
     BrowserModule,
