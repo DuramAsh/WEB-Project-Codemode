@@ -223,7 +223,6 @@ Front-End - [Nura](https://www.instagram.com/trdln_/) - n_turdalin@kbtu.kz
 Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Codemode)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 [![Adil][instaa-shield]][ia]
 [![Adil][ta-shield]][ta]
 [![Bauka][instab-shield]][ib]
