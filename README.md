@@ -223,6 +223,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Front-End - [Nura](https://www.instagram.com/trdln_/) - n_turdalin@kbtu.kz
 
+Back-End - [Bauka](https://www.instagram.com/bbaaurzhan/) - b_balgaziev@kbtu.kz
+
+Back-End - [Zhaks](https://www.instagram.com/jxdrmsh/) - z_ashim@kbtu.kz
+
 Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Codemode)
 
 
