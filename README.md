@@ -33,7 +33,10 @@
   </p>
 </div>
 
-
+<p align="center"> WEB-Spring-2022: <strong>Project of IT school "Codemode".</strong>
+<br />
+Members: <strong>[Zhaksylyk Ashim, Balgaziev Bauyrzhan, Turdalin Nurassyl]</strong>
+</p>
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -267,6 +270,7 @@ Project Link: [Codemode - IT School](https://github.com/Nura-21/WEB-Project-Code
 [tb-shield]: https://img.shields.io/badge/Bauyrzhan-000?style=for-the-badge&logo=Telegram&logoColor=white
 [tn-shield]: https://img.shields.io/badge/Nurassyl-000?style=for-the-badge&logo=Telegram&logoColor=white
 [tz-shield]: https://img.shields.io/badge/Zhaksylyk-000?style=for-the-badge&logo=Telegram&logoColor=white
+
 [tb]:https://t.me/bbaaurzhan
 [ta]:https://t.me/zhaparka
 [tz]:https://t.me/duramash
