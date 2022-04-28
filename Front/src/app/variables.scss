@@ -1,6 +1,8 @@
 //Colors
 $main-color: #4825c0;
+// $main-color: #008cff;
 $accent: #f01e61;
+// $accent: #ff0000;
 $accent-2: #d71f5a;
 
 //Size variables
@@ -120,7 +122,14 @@ $login_title_big: 18px;
 $login_rad: 15px;
 $login_a_lil: 12px;
 
-
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
 
 @keyframes change {
     0% {

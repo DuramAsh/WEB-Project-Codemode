@@ -77,7 +77,7 @@ body {
                 margin-bottom: 13%;
 
                 & p{
-                    background: -webkit-linear-gradient(20deg, #4825c0, #d71f5a);
+                    background: -webkit-linear-gradient(20deg, $main-color, $accent);
                     background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }

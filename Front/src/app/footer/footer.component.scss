@@ -3,11 +3,11 @@
 footer {
     color: white;
     height: $window_h * 0.3;
-    background: rgb(72, 37, 192);
-    background: -moz-linear-gradient(90deg, rgba(72, 37, 192, 1) 0%, rgba(215, 31, 90, 1) 33%, rgba(72, 37, 192, 1) 67%, rgba(215, 31, 90, 1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(72, 37, 192, 1) 0%, rgba(215, 31, 90, 1) 33%, rgba(72, 37, 192, 1) 67%, rgba(215, 31, 90, 1) 100%);
-    background: linear-gradient(90deg, rgba(72, 37, 192, 1) 0%, rgba(215, 31, 90, 1) 33%, rgba(72, 37, 192, 1) 67%, rgba(215, 31, 90, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4825c0", endColorstr="#d71f5a", GradientType=1);
+    background: $main-color;
+    background: -moz-linear-gradient(90deg, $main-color 0%, $accent 33%, $main-color 67%, $accent 100%);
+    background: -webkit-linear-gradient(90deg, $main-color 0%, $accent 33%, $main-color 67%, $accent 100%);
+    background: linear-gradient(90deg, $main-color 0%, $accent 33%, $main-color 67%, $accent 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$main-color, endColorstr=$accent, GradientType=1);
     background-size: 400%;
 
     animation: change 20s ease infinite;

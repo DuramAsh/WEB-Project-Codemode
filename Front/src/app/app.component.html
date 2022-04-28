@@ -1,6 +1,4 @@
-
-<!-- <header>
-  
+<header>
   <p id="logo" routerLink=""><i class="material-icons">code</i>Codemode</p>
 
   <div class="right">
@@ -8,19 +6,21 @@
     <p routerLink="tutors" routerLinkActive="active">Преподаватели</p>
     <p routerLink="info" routerLinkActive="active">Отзывы</p>
     <p routerLink="contacts" routerLinkActive="active">Контакты</p>
-    <button class="btn login" [routerLink]="!logged ? ['/authorize'] : []" (click)="logged && logout()" role="button">
-      <p *ngIf="!logged">Войти</p><p *ngIf="logged">Выйти</p><i class="material-icons login" *ngIf="!logged">login</i><i class="material-icons logout" *ngIf="logged">logout</i>
-    </button>
-    <button class="btn login" (click)="logout()" role="button">
-      <p *ngIf="this.service.logged">Выйти</p><i class="material-icons logout" *ngIf="this.service.logged">logout</i>
-    </button>
-  </div>
 
-</header> -->
-<app-header></app-header>
+    <div class="dropdown">
+      <button class="dropbtn"> <p *ngIf="!isLogged">Аккаунт</p> <p *ngIf="isLogged">Нурасыл</p></button>
+      <div class="dropdown-content">
+        <p [routerLink]="isLogged ? ['/account'] : ['/authorize']">Личный кабинет <i class="material-icons-outlined">person</i> </p>
+        <p *ngIf="!isLogged" [routerLink]="['/authorize']">Войти<i class="material-icons-outlined">login</i></p>
+        <p *ngIf="isLogged" [routerLink]="['/authorize']" (click)="logout()">Выйти<i class="material-icons-outlined">logout</i></p>
+      </div>
+    </div>
+
+  </div>
+</header>
 
 <body>
-  <router-outlet ></router-outlet>
+  <router-outlet></router-outlet>
 </body>
 
 <app-footer></app-footer>

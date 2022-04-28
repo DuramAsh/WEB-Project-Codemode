@@ -70,11 +70,13 @@ body{
         img{
             // padding-top: $home_image_padding_big;
             // width: $home_image_width_big;
+            margin-top: 20%;
             opacity: 0.9;
             filter: blur(80px);
-            width: 100%;
-            height: 100%;
+            width: 60%;
+            height: 60%;
             user-select: none;
+            animation: rotation 100s infinite linear;
         }
     }
 }

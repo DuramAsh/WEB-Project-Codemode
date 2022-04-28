@@ -38,7 +38,7 @@ export class LogRegComponent implements OnInit {
       this.service.setTrue();
       this.username = '';
       this.password = '';
-      this.router.navigate(['/courses']);
+      this.router.navigate(['/account']);
     });
   }
 

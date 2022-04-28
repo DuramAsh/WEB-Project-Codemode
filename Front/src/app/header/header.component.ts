@@ -1,4 +1,5 @@
 import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { UniServiceService } from '../uni-service.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
   
   logged: any;
 
-  constructor(public service: UniServiceService){
+  constructor(public service: UniServiceService, public router: Router){
   }
 
   ngOnInit(): void {
@@ -33,6 +34,7 @@ export class HeaderComponent implements OnInit {
     this.service.setFalse();
     this.service.logout();
   }
+
 
 
 }

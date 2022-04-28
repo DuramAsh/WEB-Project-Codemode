@@ -1,0 +1,39 @@
+<body *ngIf="isLogged">
+
+    <div class="card" >
+        <div class="title " *ngIf="loaded">
+            <p class="name animate slide">Turdalin Nurassyl</p>
+            <p class="username animate slide delay-3">Логин: <span class="self_username">trdln</span> </p>
+        </div>
+
+        <div class="content" *ngIf="loaded">
+            <div class="info">
+                <p class="starts animate slide delay-6">О себе: <span class="self_info">влалвалвал лалв лал лав лал ла лал л вда 
+                    ва двал ва ьвдлтавор плвтп ловатп ловткпл отвммло тл
+                вапвар рва рва лп дтвап дтвад пвдклпт вдлтп длвтап 
+             валпт вдклт пдвтапд двыл дыаод ыкдла оылдатпдлытд</span></p>
+             <p class="starts animate slide delay-9">Почта: <span class="self_email">n_turdalin@kbtu.kz</span></p>
+             <div class="courses animate slide delay-12">
+                 <p class="starts">Курсы:</p>
+
+             </div>
+            </div>
+            <div class="image animate slide delay-12" *ngIf="loaded">
+                <img src="https://api.iconify.design/bi/person-badge.svg?color=%23{{imageColor}}" alt="">
+                <button class="btn"><p>Изменить фото</p></button>
+            </div>
+        </div>
+
+        <div class="control animate slide delay-15" *ngIf="loaded">
+            <button class="btn" (click)="toManager()"><p>Обратиться к мэнеджеру</p></button>
+            <button class="btn" routerLink="/courses"><p>Записаться на курс</p></button>
+            <button class="btn" ><p>Оставить отзыв</p></button>
+            <!-- <button class="btn" routerLink="tutors"><p>Преподаватели</p></button> -->
+        </div>
+
+        <div class="load" *ngIf="!loaded">
+            <span class="loader"></span>
+        </div>
+    </div>
+
+</body>

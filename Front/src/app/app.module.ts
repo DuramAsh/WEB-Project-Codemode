@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TutorDetailComponent } from './tutor-detail/tutor-detail.component';
 import { TutorCoursesComponent } from './tutor-courses/tutor-courses.component';
 import { CourseTutorsComponent } from './course-tutors/course-tutors.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CourseTutorsComponent } from './course-tutors/course-tutors.component';
     FooterComponent,
     TutorDetailComponent,
     TutorCoursesComponent,
-    CourseTutorsComponent
+    CourseTutorsComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

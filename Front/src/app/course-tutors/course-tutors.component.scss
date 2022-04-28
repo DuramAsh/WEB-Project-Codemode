@@ -35,7 +35,7 @@ body {
         &:before{
             content: '';
             // background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-            background: linear-gradient(90deg, rgba(72, 37, 192, 1) 0%, rgba(215, 31, 90, 1) 33%, rgba(72, 37, 192, 1) 67%, rgba(215, 31, 90, 1) 100%);
+            background: linear-gradient(90deg, $main-color 0%, $accent 33%, $main-color 67%, $accent 100%);
             position: absolute;
             top: -2px;
             left:-2px;
@@ -88,7 +88,7 @@ body {
             font-weight: bold;
             font-size: $course_title_lil;
             user-select: none;
-            background: -webkit-linear-gradient(20deg, rgba(72, 37, 192, 1) 0%, rgba(215, 31, 90, 1) 33%, rgba(72, 37, 192, 1) 67%, rgba(215, 31, 90, 1) 100%);
+            background: -webkit-linear-gradient(20deg, $main-color 0%, $accent 33%, $main-color 67%, $accent 100%);
             background-clip: text;
             -webkit-text-fill-color: transparent;
             background-size: 400%;
@@ -132,7 +132,7 @@ body {
             &:before{
                 content: '';
                 // background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-                background: linear-gradient(90deg, rgba(72, 37, 192, 1) 0%, rgba(215, 31, 90, 1) 33%, rgba(72, 37, 192, 1) 67%, rgba(215, 31, 90, 1) 100%);
+                background: linear-gradient(90deg, $main-color 0%, $accent 33%, $main-color 67%, $accent 100%);
                 position: absolute;
                 top: -8px;
                 left:-8px;
@@ -220,7 +220,7 @@ body {
                     font-size: $tutor_link_big;
                     font-weight: bold;
                     display: inline-block;
-                    background: -webkit-linear-gradient(20deg, #4825c0, #d71f5a);
+                    background: -webkit-linear-gradient(20deg, $main-color, $accent);
                     background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-size: 400%;
@@ -260,7 +260,7 @@ body {
                 &:before {
                     content: '';
                     // background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-                    background: linear-gradient(90deg, rgba(72, 37, 192, 1) 0%, rgba(215, 31, 90, 1) 33%, rgba(72, 37, 192, 1) 67%, rgba(215, 31, 90, 1) 100%);
+                    background: linear-gradient(90deg, $main-color 0%, $accent 33%, $main-color 67%, $accent 100%);
                     position: absolute;
                     top: -2px;
                     left: -2px;
