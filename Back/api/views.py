@@ -179,11 +179,11 @@ def tutor_courses(request, id):
 @api_view(['GET', 'POST'])
 def course_tutors(request, id):
     try:
-        course = Course.objects.get(name=id)
+        course = Course.objects.get(title=id)
     except Course.DoesNotExist as e:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':
-        tutors = Course.objects.get(title=id).tutors.all()
+        tutors = course.tutors.all()
         serializer = TutorSerializer(tutors, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'POST':
