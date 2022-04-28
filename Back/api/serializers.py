@@ -71,6 +71,7 @@ class StudentCourseCommentSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         data = super(StudentCourseCommentSerializer, self).to_representation(instance)
         data['student'] = Student.objects.get(pk=instance.student.pk).name
+        data['course'] = Course.objects.get(pk=instance.course.pk).title
         return data
 
 

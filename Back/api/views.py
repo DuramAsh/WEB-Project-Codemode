@@ -158,13 +158,17 @@ def student_courses(request, id):
 
 @api_view(['GET', 'POST'])
 def tutor_courses(request, id):
+    try:
+        tutor = Tutor.objects.get(name=id)
+    except Tutor.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':
-        courses = Tutor.objects.get(name=id).courses.all()
+        courses = tutor.courses.all()
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'POST':
         data = request.data
-        data["tutor"] = id
+        data["tutor"] = tutor.pk
         serializer = CourseTutorSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
@@ -174,13 +178,17 @@ def tutor_courses(request, id):
 
 @api_view(['GET', 'POST'])
 def course_tutors(request, id):
+    try:
+        course = Course.objects.get(name=id)
+    except Course.DoesNotExist as e:
+        return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':
         tutors = Course.objects.get(title=id).tutors.all()
         serializer = TutorSerializer(tutors, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'POST':
         data = request.data
-        data["course"] = id
+        data["course"] = course.pk
         serializer = CourseTutorSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
