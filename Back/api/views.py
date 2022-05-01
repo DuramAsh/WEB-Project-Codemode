@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
 from .serializers import *
+from django.core.mail import send_mail
 
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -69,6 +70,8 @@ class StudentView(APIView):
         serializer = StudentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            send_mail('Благодарим за регистрацию на портале codemode.kz!', 'Если Вы получили это письмо, значит Вы зарегистрировались на один из курсов школы программирования Codemode. Если есть какие-либо вопросы, можете обратиться к телеграмм менеджеру по ссылке: t.me/codemodecpp',
+                      'codemode.02@gmail.com', [f"{request.data['email']}"], fail_silently=True)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors)
 

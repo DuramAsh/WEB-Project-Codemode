@@ -126,6 +126,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "codemode.02@gmail.com"
+EMAIL_HOST_PASSWORD = "Ebalokratosa.228"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -145,3 +154,6 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+# from django.core.mail import send_mail
+# send_mail('Codemode шлет всем салам!', 'Если Вы получили это письмо, значит Вы зарегистрировались на один из курсов школы программирования Codemode. Просим незамедлительно внести первоначальную оплату за курс в размере 24000 тенге. Kaspi: 87772281337', 'codemode.02@gmail.com', ['duramash.02@gmail.com', 'b_balgaziev03@gmail.com', 'r_baktybaev@kbtu.kz', 'b_molutov@kbtu.kz', 'a_zhapar@kbtu.kz'], fail_silently=False)

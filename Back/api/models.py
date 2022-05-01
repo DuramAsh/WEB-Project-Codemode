@@ -38,7 +38,7 @@ class CodemodeUser(AbstractUser):
     nickname = models.CharField(max_length=300, unique=True)
     password = models.CharField(max_length=300)
     phone = models.CharField(max_length=300, null=True, blank=True)
-    email = models.EmailField(max_length=300, null=True, blank=True)
+    email = models.EmailField(max_length=300, default="")
     image_url = models.URLField(max_length=301, null=True, blank=True)
 
     objects = UserManager()
