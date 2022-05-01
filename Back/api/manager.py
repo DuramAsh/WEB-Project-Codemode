@@ -8,7 +8,6 @@ class UserManager(BaseUserManager):
         if not nickname:
             raise ValueError("Nickname must not be empty")
 
-        nickname = self.normalize_nickname(nickname)
         user = self.model(nickname=nickname, **kwargs)
         user.set_password(password)
         user.save(using=self._db)

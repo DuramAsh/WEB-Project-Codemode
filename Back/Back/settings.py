@@ -58,7 +58,7 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'Back.urls'
-AUTH_USER_MODEL = 'api.User'
+AUTH_USER_MODEL = 'api.CodemodeUser'
 
 TEMPLATES = [
     {

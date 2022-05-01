@@ -31,16 +31,15 @@ class TutorPhoneNumbers(models.Model):
         return self.phone
 
 
-class User(AbstractUser):
+class CodemodeUser(AbstractUser):
     username = None
     first_name = models.CharField(max_length=300)
     last_name = models.CharField(max_length=300)
     nickname = models.CharField(max_length=300, unique=True)
     password = models.CharField(max_length=300)
-    phone = models.CharField(max_length=300)
-    email = models.EmailField(max_length=300)
-    checkk = models.BooleanField(default=False)
-    image_url = models.URLField(max_length=301)
+    phone = models.CharField(max_length=300, null=True, blank=True)
+    email = models.EmailField(max_length=300, null=True, blank=True)
+    image_url = models.URLField(max_length=301, null=True, blank=True)
 
     objects = UserManager()
 
@@ -53,7 +52,7 @@ class StudentPhoneNumbers(models.Model):
         verbose_name = 'Student and his phone number'
         verbose_name_plural = 'Students and their phone numbers'
     student = models.ForeignKey(
-        User, related_name="phones", on_delete=models.CASCADE)
+        CodemodeUser, related_name="phones", on_delete=models.CASCADE)
     phone = models.CharField(max_length=20)
 
     def __str__(self):
@@ -72,7 +71,7 @@ class Course(models.Model):
     url = models.URLField(max_length=300, default="")
     tutors = models.ManyToManyField(Tutor, related_name="courses", through="CourseTutor")
     commented_by = models.ManyToManyField(
-        User, through="StudentCourseComment")
+        CodemodeUser, through="StudentCourseComment")
 
     def __str__(self):
         return self.title
@@ -87,7 +86,7 @@ class CourseTutor(models.Model):
     tutor = models.ForeignKey(
         Tutor, on_delete=models.CASCADE, blank=True, null=True)
     students = models.ManyToManyField(
-        User, related_name="courses", through="StudentCourseTutor")
+        CodemodeUser, related_name="courses", through="StudentCourseTutor")
     status = models.CharField(max_length=300)
     time = models.CharField(max_length=300)
     amount = models.IntegerField(default=0)
@@ -101,7 +100,7 @@ class StudentCourseTutor(models.Model):
         verbose_name = 'Student and Course-Tutors'
         verbose_name_plural = 'Student and Course-Tutors'
     student = models.ForeignKey(
-        User, on_delete=models.CASCADE, blank=True, null=True)
+        CodemodeUser, on_delete=models.CASCADE, blank=True, null=True)
     course_tutor = models.ForeignKey(
         CourseTutor, on_delete=models.CASCADE, blank=True, null=True)
     paid = models.BooleanField(default=False)
@@ -114,12 +113,12 @@ class StudentCourseComment(models.Model):
     class Meta:
         verbose_name = "Student's course comment"
         verbose_name_plural = "Students' course comments"
-    student = models.ForeignKey(User, on_delete=models.CASCADE)
+    student = models.ForeignKey(CodemodeUser, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     comment = models.TextField(max_length=512)
 
     def __str__(self):
-        return f"{self.student.name} | {self.course.title} | comment"
+        return f"{self.student.nickname} | {self.course.title} | comment"
 
 
 class Money(models.Model):
@@ -127,7 +126,7 @@ class Money(models.Model):
         verbose_name = 'Money'
         verbose_name_plural = 'Money'
     student = models.ForeignKey(
-        User, on_delete=models.CASCADE, blank=True, null=True)
+        CodemodeUser, on_delete=models.CASCADE, blank=True, null=True)
     time = models.DateTimeField(auto_now_add=True)
     type = models.BooleanField(default=False)
     message = models.TextField(max_length=300)
