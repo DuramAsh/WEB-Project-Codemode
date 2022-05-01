@@ -1,3 +1,4 @@
+from django.db.models import Sum
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
@@ -70,7 +71,8 @@ class StudentView(APIView):
         serializer = StudentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            send_mail('Благодарим за регистрацию на портале codemode.kz!', 'Если Вы получили это письмо, значит Вы зарегистрировались на один из курсов школы программирования Codemode. Если есть какие-либо вопросы, можете обратиться к телеграмм менеджеру по ссылке: t.me/codemodecpp',
+            send_mail('Благодарим за регистрацию на портале codemode.kz!',
+                      'Если Вы получили это письмо, значит Вы зарегистрировались на один из курсов школы программирования Codemode. Если есть какие-либо вопросы, можете обратиться к телеграмм менеджеру по ссылке: t.me/codemodecpp',
                       'codemode.02@gmail.com', [f"{request.data['email']}"], fail_silently=True)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors)
@@ -96,7 +98,6 @@ def student_details(request, id):
 
     if request.method == 'GET':
         serializer = StudentSerializer(student)
-        serializer.__delattr__('password')
         return Response(serializer.data)
     elif request.method == 'PUT':
         serializer = StudentSerializer(student, data=request.data)
@@ -223,3 +224,23 @@ def comments_list(request):
     comments = StudentCourseComment.objects.all()
     serializer = StudentCourseCommentSerializer(comments, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class MoneyView(APIView):
+    def get(self, request):
+        money = Money.objects.all()
+        serializer = MoneySerializer(money, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = MoneySerializer(data=request.data)
+        if serializer.is_valid():
+            student = serializer.validated_data['student']
+            student.balance += serializer.validated_data['amount']
+            if student.balance >= 0:
+                student.save()
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            elif student.balance < 0:
+                return Response({'message': 'Not enough cash on the balance'})
+        return Response(serializer.errors)

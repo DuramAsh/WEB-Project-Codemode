@@ -46,9 +46,12 @@ class CourseTutorSerializer(serializers.ModelSerializer):
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = CodemodeUser
-        fields = ['first_name', 'last_name', 'nickname', 'password', 'email']
+        fields = ['first_name', 'last_name', 'nickname', 'password', 'email', 'balance']
 
-
+    def to_representation(self, instance):
+        data = super(StudentSerializer, self).to_representation(instance)
+        data['password'] = ""
+        return data
 
 
 class StudentPhoneSerializer(serializers.ModelSerializer):
@@ -76,15 +79,18 @@ class StudentCourseCommentSerializer(serializers.ModelSerializer):
         return data
 
 
-class MoneySerializer(serializers.Serializer):
-    student_id = serializers.PrimaryKeyRelatedField(queryset=Money.objects.all())
-    time = serializers.DateTimeField()
-    type = serializers.BooleanField()
-    message = serializers.CharField()
-    status = serializers.CharField()
-
-    def create(self, validated_data):
-        return Money.objects.create(**validated_data)
-
-    def update(self, instance, validated_data):
-        pass
+class MoneySerializer(serializers.ModelSerializer):
+    # student = serializers.PrimaryKeyRelatedField(queryset=CodemodeUser.objects.all())
+    # time = serializers.DateTimeField()
+    # amount = serializers.IntegerField()
+    # message = serializers.CharField()
+    # status = serializers.CharField()
+    #
+    # def create(self, validated_data):
+    #     return Money.objects.create(**validated_data)
+    #
+    # def update(self, instance, validated_data):
+    #     pass
+    class Meta:
+        model = Money
+        fields = '__all__'

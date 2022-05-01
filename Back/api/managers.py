@@ -1,5 +1,6 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.db import models
+from django.db.models import Sum
 
 
 class UserManager(BaseUserManager):
@@ -27,5 +28,5 @@ class UserManager(BaseUserManager):
 
 class MoneyManager(models.Manager):
     def count_sum(self):
-        pass
-        # TODO BAUKA DO SMTH IDK
+        money = self.get_queryset()
+        return money.aggregate(Sum('amount'))

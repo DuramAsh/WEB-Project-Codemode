@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from api.managers import UserManager
+from .managers import UserManager, MoneyManager
 
 
 # Create your models here.
@@ -39,6 +39,7 @@ class CodemodeUser(AbstractUser):
     password = models.CharField(max_length=300)
     phone = models.CharField(max_length=300, null=True, blank=True)
     email = models.EmailField(max_length=300, default="")
+    balance = models.IntegerField(default=0)
     image_url = models.URLField(max_length=301, null=True, blank=True)
 
     objects = UserManager()
@@ -129,8 +130,9 @@ class Money(models.Model):
         CodemodeUser, on_delete=models.CASCADE, blank=True, null=True)
     time = models.DateTimeField(auto_now_add=True)
     amount = models.IntegerField(default=0)
-    message = models.TextField(max_length=300)
+    message = models.TextField(max_length=300, blank=True, null=True)
     status = models.CharField(max_length=300)
+    # methods = MoneyManager(
 
     def __str__(self):
         return f'{self.student} | {self.amount}KZT | {self.time}'
