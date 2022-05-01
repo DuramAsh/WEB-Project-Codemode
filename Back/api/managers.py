@@ -1,4 +1,5 @@
 from django.contrib.auth.base_user import BaseUserManager
+from django.db import models
 
 
 class UserManager(BaseUserManager):
@@ -22,3 +23,9 @@ class UserManager(BaseUserManager):
             raise ValueError('You must set is_staff to True')
 
         return self.create_user(nickname, password, **kwargs)
+
+
+class MoneyManager(models.Manager):
+    def count_sum(self):
+        pass
+        # TODO BAUKA DO SMTH IDK

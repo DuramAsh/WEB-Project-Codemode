@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from api.manager import UserManager
+from api.managers import UserManager
 
 
 # Create your models here.
@@ -128,9 +128,9 @@ class Money(models.Model):
     student = models.ForeignKey(
         CodemodeUser, on_delete=models.CASCADE, blank=True, null=True)
     time = models.DateTimeField(auto_now_add=True)
-    type = models.BooleanField(default=False)
+    amount = models.IntegerField(default=0)
     message = models.TextField(max_length=300)
     status = models.CharField(max_length=300)
 
     def __str__(self):
-        return self.student, self.time
+        return f'{self.student} | {self.amount}KZT | {self.time}'
