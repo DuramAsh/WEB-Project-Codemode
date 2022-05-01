@@ -44,11 +44,11 @@ class CourseTutorSerializer(serializers.ModelSerializer):
 
 
 class StudentSerializer(serializers.ModelSerializer):
-    phones = serializers.StringRelatedField(many=True, required=False)
-
     class Meta:
         model = CodemodeUser
-        fields = '__all__'
+        fields = ['first_name', 'last_name', 'nickname', 'password', 'email']
+
+
 
 
 class StudentPhoneSerializer(serializers.ModelSerializer):

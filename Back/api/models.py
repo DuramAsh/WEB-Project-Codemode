@@ -106,7 +106,7 @@ class StudentCourseTutor(models.Model):
     paid = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.student.name} | {self.course_tutor}"
+        return f"{self.student.first_name} {self.student.last_name} | {self.course_tutor}"
 
 
 class StudentCourseComment(models.Model):

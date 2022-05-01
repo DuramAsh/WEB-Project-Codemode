@@ -59,6 +59,7 @@ def post_teacher_phone(request):
 
 class StudentView(APIView):
     permission_classes = [IsAuthenticated]
+
     def get(self, request):
         students = CodemodeUser.objects.all()
         serializer = StudentSerializer(students, many=True)
@@ -92,6 +93,7 @@ def student_details(request, id):
 
     if request.method == 'GET':
         serializer = StudentSerializer(student)
+        serializer.__delattr__('password')
         return Response(serializer.data)
     elif request.method == 'PUT':
         serializer = StudentSerializer(student, data=request.data)
