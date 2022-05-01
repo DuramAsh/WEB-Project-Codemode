@@ -9,7 +9,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
-from .models import Tutor, Student, Course
+from .models import Tutor, User, Course
 
 
 class TutorView(APIView):
@@ -60,7 +60,7 @@ def post_teacher_phone(request):
 class StudentView(APIView):
     permission_classes = [IsAuthenticated]
     def get(self, request):
-        students = Student.objects.all()
+        students = User.objects.all()
         serializer = StudentSerializer(students, many=True)
         return Response(serializer.data)
 
@@ -86,8 +86,8 @@ def post_student_phone(request):
 @permission_classes([IsAuthenticated])
 def student_details(request, id):
     try:
-        student = Student.objects.get(pk=id)
-    except Student.DoesNotExist as e:
+        student = User.objects.get(pk=id)
+    except User.DoesNotExist as e:
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
     if request.method == 'GET':
@@ -143,7 +143,7 @@ def course_details(request, id):
 @permission_classes([IsAuthenticated])
 def student_courses(request, id):
     if request.method == 'GET':
-        courses = Student.objects.get(pk=id).courses.all()
+        courses = User.objects.get(pk=id).courses.all()
         serializer = CourseTutorSerializer(courses, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'POST':
