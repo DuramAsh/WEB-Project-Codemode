@@ -14,7 +14,9 @@ urlpatterns = [
     path('tutors/phones/', post_teacher_phone),
     path('tutors/<str:id>/courses/', tutor_courses),
 
-    path('students/', StudentView.as_view()),
+    # path('students/', StudentView.as_view()),
+    path('students/', get_students),
+    path('students/register/', register),
     path('students/phones/', post_student_phone),
     path('students/<int:id>/', student_details),
     path('students/<int:id>/courses/', student_courses),
