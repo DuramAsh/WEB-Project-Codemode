@@ -1,5 +1,6 @@
 import { Component  } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from './models';
 import { UniServiceService } from './uni-service.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { UniServiceService } from './uni-service.service';
 export class AppComponent {
   title = 'Front-s';
   logged: any;
+  declare user : User;
 
   constructor(public service: UniServiceService, public router: Router){
   }
@@ -25,6 +27,13 @@ export class AppComponent {
 
   get isLogged(): boolean {
     return this.service.logged;
+  }
+
+  getUser(){
+    const id = localStorage.getItem('user_id') || 1;
+    this.service.getUser(+(id)).subscribe(user =>{
+      this.user = user;
+    })
   }
 
   

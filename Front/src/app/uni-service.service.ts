@@ -9,6 +9,7 @@ import { Token, Course, Tutor, Info, User } from './models';
 export class UniServiceService {
 
   logged : any;
+  username : string = "";
   pageLoad = 800;
   slideLoad = 500;
 
@@ -21,6 +22,10 @@ export class UniServiceService {
   constructor(private client: HttpClient) { 
     this.logChange.subscribe(value =>{
       this.logged = value;
+      const id = localStorage.getItem('user_id') || 1;
+      this.getUser(+id).subscribe(data => {
+        this.username = data.nickname;
+      })
     })
   }
 

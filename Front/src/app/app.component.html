@@ -8,7 +8,7 @@
     <p routerLink="contacts" routerLinkActive="active">Контакты</p>
 
     <div class="dropdown">
-      <button class="dropbtn"> <p *ngIf="!isLogged">Аккаунт</p> <p *ngIf="isLogged">Нурасыл</p></button>
+      <button class="dropbtn"> <p *ngIf="!isLogged">Аккаунт</p> <p *ngIf="isLogged">{{user.first_name}}</p></button>
       <div class="dropdown-content">
         <p [routerLink]="isLogged ? ['/account'] : ['/authorize']">Личный кабинет <i class="material-icons-outlined">person</i> </p>
         <p *ngIf="!isLogged" [routerLink]="['/authorize']">Войти<i class="material-icons-outlined">login</i></p>
