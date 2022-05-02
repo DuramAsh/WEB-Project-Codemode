@@ -1,4 +1,4 @@
-export interface Course{
+export interface Course {
     id: number;
     title: string;
     description: string;
@@ -14,7 +14,7 @@ export const courses = [
         "description": "Принципы программирования на языке Python",
         "price": 24000,
         "info": "Длительность:14 недель Курс преподается с нуля",
-        "url": "https://api.iconify.design/teenyicons/python-outline.svg?color=%234825c0"  
+        "url": "https://api.iconify.design/teenyicons/python-outline.svg?color=%234825c0"
     },
     {
         "id": 2,
@@ -22,7 +22,7 @@ export const courses = [
         "description": "Принципы программирования на языке C++",
         "price": 24000,
         "info": "Длительность:14 недель Курс преподается с нуля",
-        "url": "https://api.iconify.design/bxl/c-plus-plus.svg?color=%234825c0"  
+        "url": "https://api.iconify.design/bxl/c-plus-plus.svg?color=%234825c0"
     },
     {
         "id": 3,
@@ -30,7 +30,7 @@ export const courses = [
         "description": "Алгоритмы и структуры данных",
         "price": 32000,
         "info": "Длительность:14 недель Курс преподается с нуля",
-        "url": "https://api.iconify.design/mdi/graph-outline.svg?color=%234825c0"  
+        "url": "https://api.iconify.design/mdi/graph-outline.svg?color=%234825c0"
     },
     {
         "id": 3,
@@ -38,7 +38,7 @@ export const courses = [
         "description": "Алгоритмы и структуры данных",
         "price": 32000,
         "info": "Длительность:14 недель Курс преподается с нуля",
-        "url": "https://api.iconify.design/mdi/graph-outline.svg?color=%234825c0" 
+        "url": "https://api.iconify.design/mdi/graph-outline.svg?color=%234825c0"
     },
     {
         "id": 3,
@@ -46,7 +46,7 @@ export const courses = [
         "description": "Алгоритмы и структуры данных",
         "price": 32000,
         "info": "Длительность:14 недель Курс преподается с нуля",
-        "url": "https://api.iconify.design/mdi/graph-outline.svg?color=%234825c0"  
+        "url": "https://api.iconify.design/mdi/graph-outline.svg?color=%234825c0"
     },
     {
         "id": 3,
@@ -54,11 +54,11 @@ export const courses = [
         "description": "Алгоритмы и структуры данных",
         "price": 32000,
         "info": "Длительность:14 недель Курс преподается с нуля",
-        "url": "https://api.iconify.design/mdi/graph-outline.svg?color=%234825c0"  
+        "url": "https://api.iconify.design/mdi/graph-outline.svg?color=%234825c0"
     }
-    
+
 ]
-export interface Tutor{
+export interface Tutor {
     id: number;
     name: string;
     info: string;
@@ -68,19 +68,19 @@ export interface Tutor{
     phones: string[];
 }
 
-export interface Token{
+export interface Token {
     access: string;
     id: number;
 }
 
-export interface Info{
+export interface Info {
     id: number;
     comment: string;
     student: string;
     course: string;
 }
 
-export interface User{
+export interface User {
     id: number;
     nickname: string;
     first_name: string;
@@ -91,7 +91,7 @@ export interface User{
     balance: number;
 }
 
-export interface RegUser{
+export interface RegUser {
     nickname: string;
     password: string;
     first_name: string;
@@ -99,11 +99,27 @@ export interface RegUser{
     email: string;
 }
 
-export interface StCourse{
-    id : number;
+export interface StCourse {
+    id: number;
     status: string;
     time: string;
     amount: number;
     course: number;
     tutor: number;
+}
+
+export interface CourseTutor {
+    id: number;
+    status: string;
+    time: string;
+    amoun: number;
+    course: number;
+    tutor: number;
+    students: [];
+}
+
+export interface Buy{
+    student: number;
+    course_tutor: number;
+    paid: boolean;
 }

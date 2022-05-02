@@ -20,19 +20,10 @@ export class InfoComponent implements OnInit {
 
   ngOnInit(): void {
     timer(this.service.slideLoad).subscribe(x => this.getInfo());
-    // this.appear = this.info[this.i];
-    // console.log(this.appear);
   }
 
   getInfo() {
     this.service.getInfo().subscribe(comments =>{
-
-      for(const i of comments){
-        this.service.getCourse(i.course).subscribe( course =>{
-          i.course = course.title;
-        }
-        );
-      }
       this.info = comments;
       this.loaded = true;
     })

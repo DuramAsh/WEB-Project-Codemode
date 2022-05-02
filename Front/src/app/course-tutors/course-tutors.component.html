@@ -14,7 +14,7 @@
                 <p class="info">{{tutor.info}}</p>
                 <a class="link" href="{{tutor.url}}">Telegram</a>
             </div>
-            <button class="btn" [routerLink]="['/tutors/', tutor.name]">  <p>Просмотреть</p> <i class="material-icons">search</i></button>
+            <button class="btn" [routerLink]="isLogged ? [] : ['/authorize']" (click)="isLogged && buyCourse(tutor.id)">  <p>Записаться</p> <i class="material-icons">shopping_cart</i></button>
         </div>
     </div>
 

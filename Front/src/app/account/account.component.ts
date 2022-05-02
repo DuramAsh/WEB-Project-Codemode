@@ -17,6 +17,7 @@ export class AccountComponent implements OnInit {
   have = false;
   phone = "+7()";
   declare courses : StCourse[];
+  output : string[] = [];
   declare user : User;
 
   
@@ -29,7 +30,6 @@ export class AccountComponent implements OnInit {
     }
     
     timer(this.service.pageLoad).subscribe(x => {this.loaded = true; this.getUser(); this.getCourses()})
-    console.log(this.user);
     
   }
 
@@ -70,9 +70,12 @@ export class AccountComponent implements OnInit {
     const id = localStorage.getItem('user_id') || 1;
     this.service.getUsersCourses(+id).subscribe(courses => {
       for(let i of courses){
-        
-      };
+        this.service.getCourse(i.course).subscribe(each => {
+          this.output.push(each.url);
+        })
+      }
     })
+    console.log(this.output);
   }
 
 }

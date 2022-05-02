@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { Token, Course, Tutor, Info, User, RegUser, StCourse } from './models';
+import { Token, Course, Tutor, Info, User, RegUser, StCourse, CourseTutor, Buy } from './models';
 
 @Injectable({
   providedIn: 'root'
@@ -68,19 +68,19 @@ export class UniServiceService {
     return this.client.get<Tutor[]>(`${this.ROOT_URL}/tutors/`);
   }
 
-  getCourse(id: string): Observable<Course> {
+  getCourse(id: number): Observable<Course> {
     return this.client.get<Course>(`${this.ROOT_URL}/courses/${id}/`);
   }
 
-  getTutor(id: string): Observable<Tutor> {
+  getTutor(id: number): Observable<Tutor> {
     return this.client.get<Tutor>(`${this.ROOT_URL}/tutors/${id}/`);
   }
 
-  getTutorCourse(id: string): Observable<Course[]> {
+  getTutorCourse(id: number): Observable<Course[]> {
     return this.client.get<Course[]>(`${this.ROOT_URL}/tutors/${id}/courses/`);
   }
 
-  getCourseTutors(id: string): Observable<Tutor[]> {
+  getCourseTutors(id: number): Observable<Tutor[]> {
     return this.client.get<Tutor[]>(`${this.ROOT_URL}/courses/${id}/tutors/`);
   }
 
@@ -98,6 +98,20 @@ export class UniServiceService {
 
   setPhone(id : number,phone : string): Observable<string>{
     return this.client.put<string>(`${this.ROOT_URL}/students/${id}/`, {phone})
+  }
+
+  buyCourse(student: number, course_tutor : number, paid: boolean) : Observable<Buy>{
+    return this.client.post<Buy>(`${this.ROOT_URL}/students/${student}/courses/`, {
+      student, course_tutor, paid
+    })
+  }
+
+  getAllCoursesTutors() : Observable<CourseTutor[]> {
+    return this.client.get<CourseTutor[]>(`${this.ROOT_URL}/courses/tutors/`);
+  }
+
+  updateBalance(id: number, balance : number) : Observable<number>{
+    return this.client.put<number>(`${this.ROOT_URL}/students/${id}/`, {balance})
   }
 }
 

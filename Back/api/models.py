@@ -33,10 +33,10 @@ class TutorPhoneNumbers(models.Model):
 
 class CodemodeUser(AbstractUser):
     username = None
-    first_name = models.CharField(max_length=300)
-    last_name = models.CharField(max_length=300)
-    nickname = models.CharField(max_length=300, unique=True)
-    password = models.CharField(max_length=300)
+    first_name = models.CharField(max_length=300, null=True, blank=True)
+    last_name = models.CharField(max_length=300, null=True, blank=True)
+    nickname = models.CharField(max_length=300, unique=True, null=True, blank=True)
+    password = models.CharField(max_length=300, null=True, blank=True)
     phone = models.CharField(max_length=300, null=True, blank=True)
     email = models.EmailField(max_length=300, default="")
     balance = models.IntegerField(default=0)
@@ -45,7 +45,7 @@ class CodemodeUser(AbstractUser):
     objects = UserManager()
 
     USERNAME_FIELD = 'nickname'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = [balance, image_url]
 
 
 class StudentPhoneNumbers(models.Model):

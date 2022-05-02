@@ -36,9 +36,9 @@ export class CourseDetailComponent implements OnInit {
 
   getCourse(){
     this.route.paramMap.subscribe(params => {
-      const id = params.get('title') || '0';
+      const id = params.get('id') || 0;
       this.loaded = false;
-      this.service.getCourse(id).subscribe(course =>{
+      this.service.getCourse(+id).subscribe(course =>{
         this.course = course
       })
       this.loaded = true;
@@ -52,5 +52,6 @@ export class CourseDetailComponent implements OnInit {
   toManager(){
     location.href='https://t.me/codemode';
   }
+
 
 }

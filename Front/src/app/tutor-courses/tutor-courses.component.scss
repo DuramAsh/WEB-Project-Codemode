@@ -308,6 +308,12 @@ body {
                     font-size: $course_p_big;
                     color: white;
                     font-weight: normal;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    & i{
+                        margin-left: 5px;
+                    }
                 }
             }
         }

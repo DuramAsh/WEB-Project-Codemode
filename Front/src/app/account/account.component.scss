@@ -194,6 +194,12 @@ body {
         .save{
             cursor: pointer;
         }
+
+        .courses{
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+        }
         
     }
 

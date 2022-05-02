@@ -18,10 +18,11 @@
                 <p class="starts animate slide delay-9">Баланс: <span class="self_email"> {{user.balance |
                         currency:'KZT':'symbol-narrow':'.0'}} </span></p>
                 <div class="courses animate slide delay-12">
-                    <p class="starts">Курсы:</p>
-                        <li *ngFor="let course of courses">
-                            <p>{{course.id}}</p>
-                        </li>
+                    <p class="starts courses">Курсы:</p>
+                        <div *ngFor="let i of output" class="courses">
+                            <!-- <p>{{i}}</p> -->
+                            <img src="{{i}}" alt="logo" style="width:50px;">
+                        </div>
                 </div>
             </div>
             <div class="image animate slide delay-12" *ngIf="loaded">

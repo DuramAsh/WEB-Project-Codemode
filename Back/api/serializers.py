@@ -28,6 +28,7 @@ class TutorPhoneSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
     url = serializers.CharField()
     title = serializers.CharField()
     description = serializers.CharField()
@@ -67,6 +68,8 @@ class StudentSerializer(serializers.ModelSerializer):
         data['password'] = ""
         return data
 
+    
+
 
 class StudentPhoneSerializer(serializers.ModelSerializer):
     class Meta:
@@ -88,7 +91,8 @@ class StudentCourseCommentSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         data = super(StudentCourseCommentSerializer, self).to_representation(instance)
         data['student'] = CodemodeUser.objects.get(
-            pk=instance.student.pk).nickname
+            pk=instance.student.pk).first_name + " " + CodemodeUser.objects.get(
+            pk=instance.student.pk).last_name
         data['course'] = Course.objects.get(pk=instance.course.pk).title
         return data
 

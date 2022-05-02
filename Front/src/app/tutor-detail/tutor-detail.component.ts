@@ -35,9 +35,9 @@ export class TutorDetailComponent implements OnInit {
   // }
   getTutor() {
     this.route.paramMap.subscribe(params => {
-      const id = params.get('name') || '0';
+      const id = params.get('id') || '0';
       this.loaded = false;
-      this.service.getTutor(id).subscribe(tutor => {
+      this.service.getTutor(+id).subscribe(tutor => {
         this.tutor = tutor;
       }
       );
