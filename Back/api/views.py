@@ -14,6 +14,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 # Create your views here.
 from .models import Tutor, CodemodeUser, Course
 
+
 class CustomTokenObtainPairView(TokenObtainPairView):
     # Replace the serializer with your custom
     serializer_class = CustomTokenObtainPairSerializer
@@ -64,23 +65,42 @@ def post_teacher_phone(request):
         return Response(serializer.errors)
 
 
-class StudentView(APIView):
-    # permission_classes = [IsAuthenticated]
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_students(request):
+    students = CodemodeUser.objects.all()
+    serializer = StudentSerializer(students, many=True)
+    return Response(serializer.data)
 
-    def get(self, request):
-        students = CodemodeUser.objects.all()
-        serializer = StudentSerializer(students, many=True)
-        return Response(serializer.data)
 
-    def post(self, request):
-        serializer = StudentSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            send_mail('Благодарим за регистрацию на портале codemode.kz!',
-                      'Если Вы получили это письмо, значит Вы зарегистрировались на один из курсов школы программирования Codemode. Если есть какие-либо вопросы, можете обратиться к телеграмм менеджеру по ссылке: t.me/codemodecpp',
-                      'codemode.02@gmail.com', [f"{request.data['email']}"], fail_silently=True)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors)
+@api_view(['POST'])
+def register(request):
+    serializer = StudentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        send_mail('Благодарим за регистрацию на портале codemode.kz!',
+                  'Если Вы получили это письмо, значит Вы зарегистрировались на один из курсов школы программирования Codemode. Если есть какие-либо вопросы, можете обратиться к телеграмм менеджеру по ссылке: t.me/codemodecpp',
+                  'codemode.02@gmail.com', [f"{request.data['email']}"], fail_silently=True)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors)
+
+# class StudentView(APIView):
+#     # permission_classes = [IsAuthenticated]
+
+#     def get(self, request):
+#         students = CodemodeUser.objects.all()
+#         serializer = StudentSerializer(students, many=True)
+#         return Response(serializer.data)
+
+#     def post(self, request):
+#         serializer = StudentSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             send_mail('Благодарим за регистрацию на портале codemode.kz!',
+#                       'Если Вы получили это письмо, значит Вы зарегистрировались на один из курсов школы программирования Codemode. Если есть какие-либо вопросы, можете обратиться к телеграмм менеджеру по ссылке: t.me/codemodecpp',
+#                       'codemode.02@gmail.com', [f"{request.data['email']}"], fail_silently=True)
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors)
 
 
 @api_view(['POST'])
