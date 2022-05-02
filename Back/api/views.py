@@ -65,7 +65,7 @@ def post_teacher_phone(request):
 
 
 class StudentView(APIView):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request):
         students = CodemodeUser.objects.all()
