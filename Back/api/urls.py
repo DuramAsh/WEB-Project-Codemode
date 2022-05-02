@@ -10,9 +10,11 @@ urlpatterns = [
     path('login/', CustomTokenObtainPairView.as_view()),
     path('login/refresh/', TokenRefreshView.as_view()),
     path('tutors/', TutorView.as_view()),
-    path('tutors/<str:id>/', tutor_details),
+    path('tutors/<str:name>/', tutor_details_str),
+    path('tutors/<int:id>/', tutor_details_int),
     path('tutors/phones/', post_teacher_phone),
-    path('tutors/<str:id>/courses/', tutor_courses),
+    path('tutors/<str:name>/courses/', tutor_courses_str),
+    path('tutors/<int:id>/courses/', tutor_courses_int),
 
     # path('students/', StudentView.as_view()),
     path('students/', get_students),
@@ -22,9 +24,12 @@ urlpatterns = [
     path('students/<int:id>/courses/', student_courses),
 
     path('courses/', CourseView.as_view()),
-    path('courses/<str:id>/', course_details),
-    path('courses/<str:id>/tutors/', course_tutors),
-    path('courses/<str:id>/comments/', course_comments),
+    path('courses/<str:title>/', course_details_str),
+    path('courses/<int:id>/', course_details_int),
+    path('courses/<str:title>/tutors/', course_tutors_str),
+    path('courses/<int:id>/tutors/', course_tutors_int),
+    path('courses/<str:title>/comments/', course_comments_str),
+    path('courses/<int:id>/comments/', course_comments_int),
     path('comments/', comments_list),
 
     path('money/', MoneyView.as_view())
