@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { Token, Course, Tutor, Info, Student } from './models';
+import { Token, Course, Tutor, Info, User } from './models';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +32,9 @@ export class UniServiceService {
     this.logged = true;
   }
 
-  login(username: string, password: string): Observable<Token> {
+  login(nickname: string, password: string): Observable<Token> {
     return this.client.post<Token>(`${this.ROOT_URL}/login/`, {
-      username,
+      nickname,
       password
     });
   }
@@ -76,8 +76,8 @@ export class UniServiceService {
     return this.client.get<Tutor[]>(`${this.ROOT_URL}/courses/${id}/tutors/`);
   }
 
-  getStudent(id: number): Observable<Student> {
-    return this.client.get<Student>(`${this.ROOT_URL}/courses/${id}/`);
+  getUser(id: number): Observable<User> {
+    return this.client.get<User>(`${this.ROOT_URL}/students/${id}/`);
   }
 
   getInfo(): Observable<any[]> {

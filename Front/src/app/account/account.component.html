@@ -2,8 +2,8 @@
 
     <div class="card" >
         <div class="title " *ngIf="loaded">
-            <p class="name animate slide">Turdalin Nurassyl</p>
-            <p class="username animate slide delay-3">Логин: <span class="self_username">trdln</span> </p>
+            <p class="name animate slide">{{user.last_name}} {{user.first_name}}</p>
+            <p class="username animate slide delay-3">Логин: <span class="self_username">{{user.nickname}}</span> </p>
         </div>
 
         <div class="content" *ngIf="loaded">
@@ -12,7 +12,8 @@
                     ва двал ва ьвдлтавор плвтп ловатп ловткпл отвммло тл
                 вапвар рва рва лп дтвап дтвад пвдклпт вдлтп длвтап 
              валпт вдклт пдвтапд двыл дыаод ыкдла оылдатпдлытд</span></p>
-             <p class="starts animate slide delay-9">Почта: <span class="self_email">n_turdalin@kbtu.kz</span></p>
+             <p class="starts animate slide delay-9">Почта: <span class="self_email"> {{user.email}} </span></p>
+             <p class="starts animate slide delay-9">Баланс: <span class="self_email"> {{user.balance | currency:'KZT':'symbol-narrow':'.0'}} </span></p>
              <div class="courses animate slide delay-12">
                  <p class="starts">Курсы:</p>
 

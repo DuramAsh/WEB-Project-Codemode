@@ -1,7 +1,17 @@
 from rest_framework import serializers
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from django.contrib.auth.hashers import make_password
 
 from .models import *
 
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+        # The default result (access/refresh tokens)
+        data = super(CustomTokenObtainPairSerializer, self).validate(attrs)
+        # Custom data you want to include
+        data.update({'id': self.user.id})
+        # and everything else you want to send in the response
+        return data
 
 class TutorSerializer(serializers.ModelSerializer):
     phones = serializers.StringRelatedField(many=True, required=False)
@@ -47,6 +57,10 @@ class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = CodemodeUser
         fields = ['first_name', 'last_name', 'nickname', 'password', 'email', 'balance']
+
+    def create(self, validated_data):
+        validated_data['password'] = make_password(validated_data['password'])
+        return CodemodeUser.objects.create(**validated_data)
 
     def to_representation(self, instance):
         data = super(StudentSerializer, self).to_representation(instance)

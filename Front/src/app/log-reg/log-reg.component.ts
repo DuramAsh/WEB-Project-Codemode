@@ -9,7 +9,7 @@ import { UniServiceService } from '../uni-service.service';
 export class LogRegComponent implements OnInit {
 
 
-  username = '';
+  nickname = '';
   password = '';  
 
   constructor(public service: UniServiceService, private router: Router) { 
@@ -31,12 +31,13 @@ export class LogRegComponent implements OnInit {
 
 
   login() {
-    this.service.login(this.username, this.password).subscribe((data) => {
+    this.service.login(this.nickname, this.password).subscribe((data) => {
       console.log(data);
       localStorage.setItem('access', data.access);
+      localStorage.setItem('user_id', String(data.id));
 
       this.service.setTrue();
-      this.username = '';
+      this.nickname = '';
       this.password = '';
       this.router.navigate(['/account']);
     });

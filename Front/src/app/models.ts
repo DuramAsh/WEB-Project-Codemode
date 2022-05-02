@@ -70,6 +70,7 @@ export interface Tutor{
 
 export interface Token{
     access: string;
+    id: number;
 }
 
 export interface Info{
@@ -79,9 +80,13 @@ export interface Info{
     course: string;
 }
 
-export interface Student{
+export interface User{
     id: number;
-    name: string;
+    nickname: string;
+    first_name: string;
+    last_name: string;
+    phone: string;
     email: string;
-    cash: number;
+    image_url: string;
+    balance: number;
 }
