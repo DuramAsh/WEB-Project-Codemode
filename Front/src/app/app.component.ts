@@ -11,9 +11,8 @@ import { UniServiceService } from './uni-service.service';
 export class AppComponent {
   title = 'Front-s';
   logged: any;
-  declare user : User;
 
-  constructor(public service: UniServiceService, public router: Router){
+  constructor(private service: UniServiceService, private router: Router){
   }
 
   ngOnInit(): void {
@@ -29,12 +28,6 @@ export class AppComponent {
     return this.service.logged;
   }
 
-  getUser(){
-    const id = localStorage.getItem('user_id') || 1;
-    this.service.getUser(+(id)).subscribe(user =>{
-      this.user = user;
-    })
-  }
 
   
   logout() {

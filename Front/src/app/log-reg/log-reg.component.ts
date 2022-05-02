@@ -11,6 +11,10 @@ export class LogRegComponent implements OnInit {
 
   nickname = '';
   password = '';  
+  first_name = '';  
+  last_name = '';  
+  email = '';  
+  register : boolean = false;
 
   constructor(public service: UniServiceService, private router: Router) { 
   }
@@ -43,10 +47,28 @@ export class LogRegComponent implements OnInit {
     });
   }
 
+  reg(){
+    this.service.register(this.nickname, this.password, this.first_name, this.last_name, this.email).subscribe(data => {
+      console.log(data);
+    });
+    // this.nickname = '';
+    // this.password = '';
+    // this.first_name = '';
+    // this.last_name = '';
+    // this.email = '';
+    // this.register = false;
+  }
+
   logout(){
     this.service.setFalse();
     this.service.logout();
   }
 
+  toRegister(){
+    this.register = true;
+  }
 
+  outRegister(){
+    this.register = false;
+  }
 }

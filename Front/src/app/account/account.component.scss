@@ -17,7 +17,7 @@ body {
         border: 3.5px solid $main-color;
         border-radius: 25px;
 
-        .title{
+        .title {
             width: 75%;
             height: 20%;
             // background-color: white;
@@ -25,15 +25,17 @@ body {
             flex-direction: column;
             justify-content: space-around;
             border-bottom: 3px dotted $main-color;
-            & .name{
+
+            & .name {
                 font-size: 42px;
                 text-transform: uppercase;
                 font-weight: bold;
             }
 
-            & .username{
+            & .username {
                 font-size: 18px;
-                & .self_username{
+
+                & .self_username {
                     font-size: 24px;
                     text-transform: uppercase;
                     font-weight: bold;
@@ -41,50 +43,52 @@ body {
             }
         }
 
-        .content{
+        .content {
             // background-color: wheat;
             width: 100%;
             height: 68%;
             display: flex;
             flex-direction: row;
             padding-top: 1%;
-            
-            & .info{
+
+            & .info {
                 width: 75%;
-                & .starts{
+
+                & .starts {
                     padding-bottom: 1.5%;
                     font-size: 18px;
 
-                    & .self_info{
+                    & .self_info {
                         font-size: 24px;
                         font-weight: bold;
                     }
 
-                    & .self_email{
+                    & .self_email {
                         font-size: 24px;
                         font-weight: bold;
                         text-transform: uppercase;
                     }
                 }
+
                 border-bottom: 3px dotted $main-color;
-                
+
             }
 
-            & .image{
+            & .image {
                 width: 25%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-evenly;
 
-                & .btn{
+                & .btn {
                     width: 80%;
                     border: 2px solid $main-color;
                     border-radius: 10px;
                     padding: 2% 2%;
                 }
-                
-                img{
+
+                img {
                     width: 100%;
                     border: 3px solid $main-color;
                     border-radius: 20px;
@@ -92,7 +96,7 @@ body {
                 }
             }
         }
-        
+
         .control {
             width: 100%;
             display: flex;
@@ -174,10 +178,23 @@ body {
             }
         }
 
-        .load{
+        .load {
             margin-left: 0;
             margin-top: -2%;
         }
+
+        .edit {
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: $main-color;
+        }
+
+        .save{
+            cursor: pointer;
+        }
+        
     }
 
 }

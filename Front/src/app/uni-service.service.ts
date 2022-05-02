@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { Token, Course, Tutor, Info, User } from './models';
+import { Token, Course, Tutor, Info, User, RegUser, StCourse } from './models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UniServiceService {
 
-  logged : any;
-  username : string = "";
+  logged: any;
   pageLoad = 800;
   slideLoad = 500;
 
@@ -20,21 +19,18 @@ export class UniServiceService {
   // ROOT_URL = 'http://172.16.92.217:8000/api';
   // ROOT_URL = 'https://trdln.pythonanywhere.com/api';
 
-  constructor(private client: HttpClient) { 
-    this.logChange.subscribe(value =>{
+  constructor(private client: HttpClient) {
+    this.logChange.subscribe(value => {
       this.logged = value;
-      const id = localStorage.getItem('user_id') || 1;
-      this.getUser(+id).subscribe(data => {
-        this.username = data.nickname;
-      })
     })
   }
 
-  setFalse(){
+
+  setFalse() {
     this.logged = false;
   }
 
-  setTrue(){
+  setTrue() {
     this.logged = true;
   }
 
@@ -44,7 +40,13 @@ export class UniServiceService {
       password
     });
   }
-  
+
+  register(nickname: string, password: string, first_name: string, last_name: string, email:string): Observable<RegUser>{
+    return this.client.post<RegUser>(`${this.ROOT_URL}/students/register/`, {
+      nickname, password, first_name, last_name, email
+    });
+  }
+
   refresh(): Observable<Token> {
     const token = localStorage.getItem('refresh');
     return this.client.post<Token>(`${this.ROOT_URL}/login/refresh/`, {
@@ -86,8 +88,16 @@ export class UniServiceService {
     return this.client.get<User>(`${this.ROOT_URL}/students/${id}/`);
   }
 
+  getUsersCourses(id:number): Observable<StCourse[]> {
+    return this.client.get<StCourse[]>(`${this.ROOT_URL}/students/${id}/courses/`);
+  }
+
   getInfo(): Observable<any[]> {
     return this.client.get<any[]>(`${this.ROOT_URL}/comments/`);
+  }
+
+  setPhone(id : number,phone : string): Observable<string>{
+    return this.client.put<string>(`${this.ROOT_URL}/students/${id}/`, {phone})
   }
 }
 

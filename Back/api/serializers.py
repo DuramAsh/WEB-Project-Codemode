@@ -56,7 +56,7 @@ class CourseTutorSerializer(serializers.ModelSerializer):
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = CodemodeUser
-        fields = ['first_name', 'last_name', 'nickname', 'password', 'email', 'balance']
+        fields = ['first_name', 'last_name', 'nickname', 'password', 'email', 'balance','phone']
 
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])

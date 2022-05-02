@@ -90,3 +90,20 @@ export interface User{
     image_url: string;
     balance: number;
 }
+
+export interface RegUser{
+    nickname: string;
+    password: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+}
+
+export interface StCourse{
+    id : number;
+    status: string;
+    time: string;
+    amount: number;
+    course: number;
+    tutor: number;
+}
