@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { timer } from 'rxjs';
 import { Course, Tutor } from '../models';
 import { UniServiceService } from '../uni-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-course-tutors',
@@ -14,6 +15,20 @@ export class CourseTutorsComponent implements OnInit {
   loaded : boolean = false;
   declare course : Course;
   declare tutors : Tutor[];
+
+  Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 2500,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
+
   constructor(private service: UniServiceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -50,27 +65,62 @@ export class CourseTutorsComponent implements OnInit {
       const id = localStorage.getItem('user_id') || 1;
       
       
-      this.service.getCourse(+course_id).subscribe(course => {
-        this.service.getUser(+id).subscribe(user => {
-          if(user.balance >= course.price){
-            this.service.updateBalance(+id, (user.balance - course.price)).subscribe(data => {
-              console.log(data);
-            })
-            
-            this.service.getAllCoursesTutors().subscribe(courses =>{
-              for(let each of courses){
-                if(each.course == +course_id && each.tutor == tutor){
-                  this.service.buyCourse(+id, each.id, true).subscribe(data => {
-                    console.log(data);
-                  });
-      
-                }
-              }
-            });
-          }
+
+      Swal.fire({
+        title: 'Оплата курса',
+        text: 'Вы уверены?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Да!',
+        cancelButtonText: 'Нет(',
+      }).then((result) => {
+  
+        if (result.isConfirmed) {
+  
+          this.service.getCourse(+course_id).subscribe(course => {
+            this.service.getUser(+id).subscribe(user => {
+              if(user.balance >= course.price){
+                this.service.updateBalance(+id, (user.balance - course.price)).subscribe(data => {
+                  console.log(data);
+                })
+                
+                this.service.getAllCoursesTutors().subscribe(courses =>{
+                  for(let each of courses){
+                    if(each.course == +course_id && each.tutor == tutor){
+                      this.service.buyCourse(+id, each.id, true).subscribe(data => {
+                        console.log(data);
+                      });
           
-        })
+                    }
+                  }
+                });
+                this.Toast.fire({
+                  icon: 'success',
+                  title: 'Курс добавлен успешно!'
+                })
+
+                // Swal.fire('Иуу!', 'Курс добавлен успешно!', 'success');
+              }else{
+                this.Toast.fire({
+                  icon: 'error',
+                  title: 'Не достаточно средств!'
+                })
+
+                // Swal.fire('Уупс!', 'Не достаточно средств!', 'error');
+              }
+              
+            })
+          })
+  
+        } else if (result.isDismissed) {
+  
+          console.log('declined');
+  
+        }
       })
+
+
+      
 
     });
     

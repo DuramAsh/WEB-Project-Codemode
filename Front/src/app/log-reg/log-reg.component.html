@@ -15,7 +15,7 @@
           <button class="btn" *ngIf="register" (click)="reg()"><p>Зарегистрироваться</p></button>
           <p class="reg" *ngIf="!register" (click)="toRegister()">Зарегистрироваться</p>
           <p class="reg" *ngIf="register" (click)="outRegister()">Уже есть аккаунт</p>
-          <a routerLink="/authorize/offer">Регистрируясь вы принимаете публичную оферту</a>
+          <a *ngIf="register" routerLink="/authorize/offer">Регистрируясь вы принимаете публичную оферту</a>
         </div>
     </div>
 </body>

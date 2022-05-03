@@ -252,12 +252,19 @@ def course_comments_int(request, id):
         return Response(serializer.errors)
 
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def comments_list(request):
-    comments = StudentCourseComment.objects.all()
-    serializer = StudentCourseCommentSerializer(comments, many=True)
-    return Response(serializer.data, status=status.HTTP_200_OK)
-
+    if request.method == 'GET':
+        comments = StudentCourseComment.objects.all()
+        serializer = StudentCourseCommentSerializer(comments, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    elif request.method == 'POST':
+        data = request.data
+        serializer = StudentCourseCommentSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors)
 
 class MoneyView(APIView):
     def get(self, request):

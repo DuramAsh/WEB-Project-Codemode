@@ -113,6 +113,10 @@ export class UniServiceService {
   updateBalance(id: number, balance : number) : Observable<number>{
     return this.client.put<number>(`${this.ROOT_URL}/students/${id}/`, {balance})
   }
+
+  postComment(student: number, course: number, comment: string) : Observable<any>{
+    return this.client.post<any>(`${this.ROOT_URL}/comments/`, {student, course, comment})
+  }
 }
 
 
