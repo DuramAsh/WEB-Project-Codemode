@@ -28,7 +28,7 @@ class TutorPhoneSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
+    id = serializers.IntegerField(required=False)
     url = serializers.CharField()
     title = serializers.CharField()
     description = serializers.CharField()
@@ -57,7 +57,7 @@ class CourseTutorSerializer(serializers.ModelSerializer):
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = CodemodeUser
-        fields = ['first_name', 'last_name', 'nickname', 'password', 'email', 'balance','phone']
+        fields = ['first_name', 'last_name', 'nickname', 'password', 'email', 'balance', 'phone']
 
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])
