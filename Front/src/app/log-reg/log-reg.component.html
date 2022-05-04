@@ -7,7 +7,7 @@
           <input *ngIf="!register" type="text" placeholder="Имя пользователя" [(ngModel)]="nickname">
           <input class="whileReg" *ngIf="register" type="text" placeholder="Имя пользователя" [(ngModel)]="nickname">
           <input type="text" placeholder="Имя" [(ngModel)]="first_name" *ngIf="register">
-          <input type="text" placeholder="Фамилья" [(ngModel)]="last_name" *ngIf="register">
+          <input type="text" placeholder="Фамилия" [(ngModel)]="last_name" *ngIf="register">
           <input type="email" placeholder="Почта" [(ngModel)]="email" *ngIf="register">
           <input class="whileRegPass" type="password" *ngIf="register" placeholder="Пароль" [(ngModel)]="password">
           <input class="whileLogin" *ngIf="!register" type="password" placeholder="Пароль" [(ngModel)]="password">          
